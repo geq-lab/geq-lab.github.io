@@ -1,113 +1,103 @@
 - id: wedges
   title: Subduction wedges and forearc basins
-  summary: |
-    Where an ocean plate dives under a continent, the sediment on it is scraped off and piles up into an accretionary wedge, with a forearc basin behind it. We model this with WedgeFlow, our own MATLAB and C code built on SiStER. It treats rock as viscous, elastic and plastic at once, so faults form on their own, and tens of millions of tracer particles carry rock type, stress and temperature through a run covering 150 km and a few million years. We ask how sedimentation changes the shape and growth of a wedge, what sets the thermal maturity of the accreted sediment (the thrusts, it turns out), and how clay minerals react as they are buried and heated, since the smectite to illite transition changes the strength of the base the wedge slides on. Saurabh Choubey has a closed-form solution for that reaction progress and compares it with WedgeFlow runs for the Nankai margin. Anindita Jana's MTech thesis tested how convergence velocity shapes a wedge, and she also ran 3D models of seamount subduction at the Nankai-Hyuga margin. Earlier papers covered forearc basin stratigraphy and forearc high uplift on the Cyprus margin.
+  summary: 'Where an ocean plate dives under a continent, the sediment on it is scraped off and piles up into an accretionary wedge, with a forearc basin behind it. We model this with WedgeFlow, our own MATLAB and C code built on SiStER. It treats rock as viscous, elastic and plastic at once, so faults form on their own, and tens of millions of tracer particles carry rock type, stress and temperature through a run covering 150 km and a few million years. We ask how sedimentation changes the shape and growth of a wedge, what sets the thermal maturity of the accreted sediment (the thrusts, it turns out), and how clay minerals react as they are buried and heated, since the smectite to illite transition changes the strength of the base the wedge slides on. Saurabh Choubey has a closed-form solution for that reaction progress and compares it with WedgeFlow runs for the Nankai margin. Anindita Jana''s MTech thesis tested how convergence velocity shapes a wedge, and she also ran 3D models of seamount
+    subduction at the Nankai-Hyuga margin. Earlier papers covered forearc basin stratigraphy and forearc high uplift on the Cyprus margin.
+
+    '
   image: img/wedge_model_t135.png
-  image_alt: "Cross-section of a WedgeFlow model of an accretionary wedge: tan sediment scraped off the incoming plate piles up against a blue backstop"
+  image_alt: 'Cross-section of a WedgeFlow model of an accretionary wedge: tan sediment scraped off the incoming plate piles up against a blue backstop'
   image_caption: Accretionary wedge in our WedgeFlow model after 1.35 million years of convergence
   image_credit: WedgeFlow model output, Utsav Mannu, Geodynamics & Earthquake Lab
   images:
-    - image: img/thermal_maturity_wedge.png
-      alt: Two model cross-sections of an accretionary wedge, the upper coloured by vitrinite reflectance and the lower by rock type, with the frontal thrust drawn as a curved line
-      caption: Thermal maturity each sediment particle eventually reaches, drawn on the wedge as it was at 4 million years, with the active frontal thrust
-      credit: Figure 7 of Mannu et al. (2024), Solid Earth, CC BY 4.0
-      link: "https://doi.org/10.5194/se-15-1-2024"
-    - image: img/wedge_evolution_solid_earth.png
-      alt: Four model cross-sections of an accretionary wedge growing from 0.5 to 7.5 million years, with isotherms as white dashed lines and the subducting plate in red
-      caption: Growth of a modelled accretionary wedge at 0.5, 2.5, 5.0 and 7.5 million years
-      credit: Figure 2 of Mannu et al. (2024), Solid Earth, CC BY 4.0
-      link: "https://doi.org/10.5194/se-15-1-2024"
-    - image: img/clay_wedge_reaction_paths.png
-      alt: Diagram of particle paths through an accretionary wedge coloured by smectite fraction, beside a plot of reaction temperature against heating rate
-      caption: Smectite to illite reaction along particle paths through an accretionary wedge, and the near-isothermal reaction thresholds, from a manuscript in preparation
-      credit: Saurabh Choubey, Shyam Nandan and Utsav Mannu, Geodynamics & Earthquake Lab
-  people: [saurabh-choubey, anindita-jana, utsav-mannu]
-
+  - image: img/thermal_maturity_wedge.png
+    alt: Two model cross-sections of an accretionary wedge, the upper coloured by vitrinite reflectance and the lower by rock type, with the frontal thrust drawn as a curved line
+    caption: Thermal maturity each sediment particle eventually reaches, drawn on the wedge as it was at 4 million years, with the active frontal thrust
+    credit: Figure 7 of Mannu et al. (2024), Solid Earth, CC BY 4.0
+    link: https://doi.org/10.5194/se-15-1-2024
+  - image: img/wedge_evolution_solid_earth.png
+    alt: Four model cross-sections of an accretionary wedge growing from 0.5 to 7.5 million years, with isotherms as white dashed lines and the subducting plate in red
+    caption: Growth of a modelled accretionary wedge at 0.5, 2.5, 5.0 and 7.5 million years
+    credit: Figure 2 of Mannu et al. (2024), Solid Earth, CC BY 4.0
+    link: https://doi.org/10.5194/se-15-1-2024
+  people:
+  - saurabh-choubey
+  - anindita-jana
+  - utsav-mannu
 - id: rifts
   title: Rifts, plumes and the Indian margins
-  summary: |
-    The margins of India record rifting, plume volcanism and, in the Andaman Sea, oblique subduction, and we model all three. For the Cambay rift basin in Gujarat we run 2D thermo-mechanical models of rifting followed by inversion, coupled to the FastScape surface-process code, to see which histories fit the structure we observe. Shravan Kumar began this work as a postdoc with us, with forward gravity models across the basin, and Sumit Singh now carries the models. Sumit is also adding fracture mechanics to geodynamic models through a phase-field approach, so that faults and earthquakes emerge inside a long-term tectonic model. For the Kerguelen plume we run I2VIS with a plume under a moving plate, with mantle melting and melt extraction. In the Andaman arc, Jagroop Singh runs 3D LaMEM models of oblique subduction, slab tearing and back-arc rifting and tests them against gravity. Parvee reconstructs the Cenozoic evolution of the Andaman forearc basin from seismic reflection profiles and offshore wells, and Devanarayanan E M interprets the same seismic lines for his MTech thesis, with Pankaj Khanna. Earlier work with Ramendra Sahoo and Pankaj Khanna covered the Holocene reefs and shallow marine carbonates of South Andaman.
+  summary: 'The margins of India record rifting, plume volcanism and, in the Andaman Sea, oblique subduction, and we model all three. For the Cambay rift basin in Gujarat we run 2D thermo-mechanical models of rifting followed by inversion, coupled to the FastScape surface-process code, to see which histories fit the structure we observe. Shravan Kumar began this work as a postdoc with us, with forward gravity models across the basin, and Sumit Singh now carries the models. Sumit is also adding fracture mechanics to geodynamic models through a phase-field approach, so that faults and earthquakes emerge inside a long-term tectonic model. For the Kerguelen plume we run I2VIS with a plume under a moving plate, with mantle melting and melt extraction. In the Andaman arc, Jagroop Singh runs 3D LaMEM models of oblique subduction, slab tearing and back-arc rifting and tests them against gravity. Parvee reconstructs the Cenozoic evolution of the Andaman forearc basin from seismic reflection profiles
+    and offshore wells, and Devanarayanan E M interprets the same seismic lines for his MTech thesis, with Pankaj Khanna. Earlier work with Ramendra Sahoo and Pankaj Khanna covered the Holocene reefs and shallow marine carbonates of South Andaman.
+
+    '
   image: img/cambay_rift_setting.jpg
   image_alt: Topographic map of western India with the Kachchh, Cambay and Narmada rifts labelled KR, CR and NR, the Saurashtra block, the Deccan Volcanic Province and the Aravalli-Delhi fold belt, and modelled profile lines
   image_caption: Topography of western India with the Kachchh (KR), Cambay (CR) and Narmada (NR) rifts, Saurashtra (SCB), the Deccan Volcanic Province (DVP) and the Aravalli-Delhi fold belt (ADFB)
   image_credit: Shravan Kumar, Geodynamics & Earthquake Lab, from public topographic data
   images:
-    - image: img/cambay_rift_models.jpg
-      alt: Six basin cross-sections from rift-inversion models stacked above a zoomed basin fill coloured by sediment age from pre-rift to post-inversion
-      caption: Six coupled ASPECT and FastScape models of rifting followed by inversion, with one basin fill coloured by sediment age, from a manuscript in preparation
-      credit: Shravan Kumar and Sumit Singh, Geodynamics & Earthquake Lab
-    - image: img/subduction_3d_topography.png
-      alt: Perspective view of a modelled surface with a deep blue trench and a red ridge beside it, coloured by elevation
-      caption: Surface topography of Jagroop Singh's 3D subduction model after 7.8 million years, with the trench as the blue depression
-      credit: Jagroop Singh, Geodynamics & Earthquake Lab
-    - image: img/phase_field_fracture.png
-      alt: Square model domain with a four-lobed red damage pattern spreading from the corners of a small central inclusion on a blue background
-      caption: Damage field in a 2D phase-field fracture model, with cracks growing from the corners of a central inclusion
-      credit: Sumit Singh, Geodynamics & Earthquake Lab
-  people: [shravan-kumar, sumit-singh, jagroop-singh, parvee, devanarayanan-em, ramendra-sahoo, utsav-mannu]
-
+  - image: img/phase_field_fracture.png
+    alt: Square model domain with a four-lobed red damage pattern spreading from the corners of a small central inclusion on a blue background
+    caption: Damage field in a 2D phase-field fracture model, with cracks growing from the corners of a central inclusion
+    credit: Sumit Singh, Geodynamics & Earthquake Lab
+  people:
+  - shravan-kumar
+  - sumit-singh
+  - jagroop-singh
+  - parvee
+  - devanarayanan-em
+  - ramendra-sahoo
+  - utsav-mannu
 - id: statseis
   title: Statistical seismology and ground motion
-  summary: |
-    Earthquake catalogues and strong-motion records are the raw material here. Omkar works on stochastic finite-fault simulation of ground motion, how the stress parameter and the sub-fault size should be chosen, how SMSIM, EXSIM and GMSS2.0 compare on the same earthquakes, and how clustering in a catalogue should be handled, using ETAS models and a ranking of declustering methods, since the declustering choice feeds straight into the design ground motion. Shikha Sharma's PhD built ground-motion models for the Himalaya with Sanjay Bora, starting from an evaluation of the existing models and moving on to a referenced empirical adjustment of global models to Indian data. On the way she compiled a flat file of strong-motion intensity measures for crustal earthquakes in the Indian region, published in Seismica with open data. Lalramnunkimi measured the kappa attenuation parameter across North-East India for her Master's dissertation, with the waveforms released as a dataset. Dakshata Bhamare's MTech thesis fitted ETAS models to three subduction zones. Kalpesh Soni and Deepak Choudhary are starting MTech theses in this area. We work closely with Sanjay Bora (Earth Sciences New Zealand) and Shyam Nandan (IIT Kanpur).
+  summary: 'Earthquake catalogues and strong-motion records are the raw material here. Omkar works on stochastic finite-fault simulation of ground motion, how the stress parameter and the sub-fault size should be chosen, how SMSIM, EXSIM and GMSS2.0 compare on the same earthquakes, and how clustering in a catalogue should be handled, using ETAS models and a ranking of declustering methods, since the declustering choice feeds straight into the design ground motion. Shikha Sharma''s PhD built ground-motion models for the Himalaya with Sanjay Bora, starting from an evaluation of the existing models and moving on to a referenced empirical adjustment of global models to Indian data. On the way she compiled a flat file of strong-motion intensity measures for crustal earthquakes in the Indian region, published in Seismica with open data. Lalramnunkimi measured the kappa attenuation parameter across North-East India for her Master''s dissertation, with the waveforms released as a dataset. Dakshata
+    Bhamare''s MTech thesis fitted ETAS models to three subduction zones. Kalpesh Soni and Deepak Choudhary are starting MTech theses in this area. We work closely with Sanjay Bora (Earth Sciences New Zealand) and Shyam Nandan (IIT Kanpur).
+
+    '
   image: img/flatfile_station_map.png
   image_alt: Shaded-relief map of the Himalaya and northern India with earthquake epicentres as orange circles sized by magnitude, stations as red triangles and major cities marked
   image_caption: Earthquakes and strong-motion stations behind the Indian flat file, records from 1986 to 2018
   image_credit: Figure 1 of Sharma et al. (2025), Seismica, CC BY 4.0
   images:
-    - image: img/declustering_bias_california.png
-      alt: Five small maps of California, one per declustering method, coloured red where the method overestimates the background earthquake rate
-      caption: Where five declustering methods bias the background earthquake rate, tested on synthetic California catalogues, from a manuscript in revision
-      credit: Omkar, Geodynamics & Earthquake Lab
-    - image: img/fas_residuals_seismica.png
-      alt: Two panels of grey residual curves against frequency with the mean in red and one standard deviation in blue
-      caption: Residuals of Fourier and effective amplitude spectra for 778 Indian strong-motion records against a ground-motion model
-      credit: Figure 11 of Sharma et al. (2025), Seismica, CC BY 4.0
-      link: "https://doi.org/10.26443/seismica.v4i2.1620"
-    - image: img/bvalue_declustering.png
-      alt: Seven bell-shaped probability curves of the b-value, one per declustering method, between 1.2 and 1.5
-      caption: b-value distributions of a catalogue after different declustering methods, including two ETAS-based ones
-      credit: Omkar, Geodynamics & Earthquake Lab
-  people: [omkar, shikha-sharma, lalramnunkimi, dakshata-bhamare, kalpesh-soni, deepak-choudhary, utsav-mannu]
-
+  - image: img/fas_residuals_seismica.png
+    alt: Two panels of grey residual curves against frequency with the mean in red and one standard deviation in blue
+    caption: Residuals of Fourier and effective amplitude spectra for 778 Indian strong-motion records against a ground-motion model
+    credit: Figure 11 of Sharma et al. (2025), Seismica, CC BY 4.0
+    link: https://doi.org/10.26443/seismica.v4i2.1620
+  people:
+  - omkar
+  - shikha-sharma
+  - lalramnunkimi
+  - dakshata-bhamare
+  - kalpesh-soni
+  - deepak-choudhary
+  - utsav-mannu
 - id: hazard
   title: Seismic hazard, site response and monitoring
-  summary: |
-    The hazard work takes the ground-motion science to particular sites. Virat Upadhyay is testing whether the curvature of the ground surface can stand in for the usual site-amplification proxies, computing frequency-scaled curvature from high-resolution elevation models at about 1,800 NGA-West2 and NGA-Sub stations and comparing it with ground-motion model residuals. He is also building a probabilistic hazard framework that brings geology, topography and coseismic landslides in together, the subject of his NIDM Doctoral Fellowship. Kalpesh Soni is looking at how an earthquake clustering model can guide where to put the stations of an early-warning and monitoring network, scoring layouts for warning time, blind zone and catalogue completeness. We run a Raspberry Shake seismograph for field vibration monitoring and a proton magnetometer for ground surveys. A good part of the group's applied work is sponsored site evaluation and ground-motion studies for critical facilities under the national siting codes, which means regional geology and seismotectonics, deterministic and probabilistic seismic hazard, and the design-basis ground motion for a site, with gravity, magnetic and GPS surveys in the field where they are needed.
-  image: img/hazard_curves_declustering.png
-  image_alt: Three panels of PGA hazard curves for Salton Trough, San Francisco and Sacramento, each with a black curve for the true background rate, a grey curve for the undeclustered catalogue and coloured curves for five declustering methods
-  image_caption: "PGA hazard curves at three California sites: the true background (black), the undeclustered catalogue (grey) and five declustered versions, from a manuscript in revision"
-  image_credit: Omkar, Geodynamics & Earthquake Lab
-  images:
-    - image: img/western_india_seismicity.png
-      alt: Map of western India with earthquake epicentres as circles sized by magnitude and coloured by depth
-      caption: Earthquakes of western India, symbol size by magnitude and colour by depth
-      credit: Utsav Mannu, Geodynamics & Earthquake Lab, from public earthquake catalogues
-    - image: img/pga_residual_curvature.png
-      alt: Line plot of binned ground-motion residual against the logarithm of terrain curvature, with error bars, falling from left to right
-      caption: Ground-motion residuals against terrain curvature, binned by station, from Virat Upadhyay's site-amplification work
-      credit: Virat Upadhyay, Geodynamics & Earthquake Lab
-  people: [virat-upadhyay, kalpesh-soni, utsav-mannu]
+  summary: 'The hazard work takes the ground-motion science to particular sites. Virat Upadhyay is testing whether the curvature of the ground surface can stand in for the usual site-amplification proxies, computing frequency-scaled curvature from high-resolution elevation models at about 1,800 NGA-West2 and NGA-Sub stations and comparing it with ground-motion model residuals. He is also building a probabilistic hazard framework that brings geology, topography and coseismic landslides in together, the subject of his NIDM Doctoral Fellowship. Kalpesh Soni is looking at how an earthquake clustering model can guide where to put the stations of an early-warning and monitoring network, scoring layouts for warning time, blind zone and catalogue completeness. We run a Raspberry Shake seismograph for field vibration monitoring and a proton magnetometer for ground surveys. A good part of the group''s applied work is sponsored site evaluation and ground-motion studies for critical facilities under
+    the national siting codes, which means regional geology and seismotectonics, deterministic and probabilistic seismic hazard, and the design-basis ground motion for a site, with gravity, magnetic and GPS surveys in the field where they are needed.
 
+    '
+  people:
+  - virat-upadhyay
+  - kalpesh-soni
+  - utsav-mannu
+  image: img/western_india_seismicity.png
+  image_alt: Map of western India with earthquake epicentres as circles sized by magnitude and coloured by depth
+  image_caption: Earthquakes of western India, symbol size by magnitude and colour by depth
+  image_credit: Utsav Mannu, Geodynamics & Earthquake Lab, from public earthquake catalogues
 - id: deep
   title: Deep Earth mineral physics and Earth observation
-  summary: |
-    Two smaller strands sit here. The first is computational mineral physics. Density functional theory (DFT) calculations tell us how minerals behave at the pressures and temperatures of the deep Earth. Gulshan Kumar works on the rutile to CaCl2-type transition in GeO2, a low-pressure analogue of SiO2, its elastic constants and seismic velocities, and how the transition would appear in subducting slabs of different ages. Sumit Ghosh combines DFT with Raman spectroscopy for oxides and silicate minerals, with a published equation of state of GeO2 to 70 GPa and conference work on euclase under pressure. Deoyani Shelke, whose PhD proposal was on the phase stability of (Pb,Zn)S solid solutions, now studies the phase transitions of cobalt phosphide, Co2P, a model for the light-element alloys of planetary cores, combining DFT with diamond anvil cell and Raman measurements made during an exchange semester at Kumamoto University. These calculations run on PARAM Ananta, the supercomputer at IITGN. The second strand is Earth observation. Meghdatt Thakkar is starting on coseismic ground deformation measured with Sentinel-1 radar interferometry (InSAR). Vansangkimi, a visiting PhD scholar from Mizoram University, reads the uplift history of the Indo-Burma Ranges from river profiles, chi and channel steepness, knickpoints and drainage divide migration, converts it to rates with river sediment loads, and maps landslide susceptibility.
-  image: img/geo2_slab_residence.png
-  image_alt: Plot of the pressure at which a slab crosses the GeO2 phase boundary against slab residence time, with blue curves for a cold slab and red for a warm slab and a grey line for the ambient transition at 30.2 GPa
-  image_caption: Pressure at which a subducting slab crosses the rutile to CaCl2-type boundary of GeO2 against the time it has spent in the mantle, for cold and warm slabs
-  image_credit: Gulshan Kumar, Geodynamics & Earthquake Lab
-  images:
-    - image: img/geo2_phase_boundary.png
-      alt: Plot of temperature against pressure with a red line and a pink uncertainty band rising from about 18 GPa at low temperature to 40 GPa at 3000 K
-      caption: The rutile to CaCl2-type phase boundary of GeO2 from Gibbs free energies, with its uncertainty band
-      credit: Gulshan Kumar, Geodynamics & Earthquake Lab
-    - image: img/co2p_magnetic_moment.png
-      alt: Two scatter plots of calculated magnetic moment against pressure for two crystal structures of Co2P, both falling to zero at high pressure
-      caption: Calculated magnetic moment of Co2P against pressure for its two crystal structures, showing the loss of magnetism under compression, from a manuscript in preparation
-      credit: Deoyani Shelke, Geodynamics & Earthquake Lab
-    - image: img/znpbs_structure.png
-      alt: Ball-and-stick model of a lead-zinc sulphide crystal with large red lead atoms, grey zinc atoms and yellow sulphur atoms
-      caption: Model of a lead-zinc sulphide solid solution from Deoyani Shelke's PhD proposal on the phase stability of (Pb,Zn)S
-      credit: Deoyani Shelke, Geodynamics & Earthquake Lab
-  people: [gulshan-kumar, deoyani-shelke, sumit-ghosh, meghdatt-thakkar, vansangkimi, utsav-mannu]
+  summary: 'Two smaller strands sit here. The first is computational mineral physics. Density functional theory (DFT) calculations tell us how minerals behave at the pressures and temperatures of the deep Earth. Gulshan Kumar works on the rutile to CaCl2-type transition in GeO2, a low-pressure analogue of SiO2, its elastic constants and seismic velocities, and how the transition would appear in subducting slabs of different ages. Sumit Ghosh combines DFT with Raman spectroscopy for oxides and silicate minerals, with a published equation of state of GeO2 to 70 GPa and conference work on euclase under pressure. Deoyani Shelke, whose PhD proposal was on the phase stability of (Pb,Zn)S solid solutions, now studies the phase transitions of cobalt phosphide, Co2P, a model for the light-element alloys of planetary cores, combining DFT with diamond anvil cell and Raman measurements made during an exchange semester at Kumamoto University. These calculations run on PARAM Ananta, the supercomputer
+    at IITGN. The second strand is Earth observation. Meghdatt Thakkar is starting on coseismic ground deformation measured with Sentinel-1 radar interferometry (InSAR). Vansangkimi, a visiting PhD scholar from Mizoram University, reads the uplift history of the Indo-Burma Ranges from river profiles, chi and channel steepness, knickpoints and drainage divide migration, converts it to rates with river sediment loads, and maps landslide susceptibility.
+
+    '
+  people:
+  - gulshan-kumar
+  - deoyani-shelke
+  - sumit-ghosh
+  - meghdatt-thakkar
+  - vansangkimi
+  - utsav-mannu
+  image: img/znpbs_structure.png
+  image_alt: Ball-and-stick model of a lead-zinc sulphide crystal with large red lead atoms, grey zinc atoms and yellow sulphur atoms
+  image_caption: Model of a lead-zinc sulphide solid solution from Deoyani Shelke's PhD proposal on the phase stability of (Pb,Zn)S
+  image_credit: Deoyani Shelke, Geodynamics & Earthquake Lab
