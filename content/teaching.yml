@@ -8,7 +8,7 @@
 - code: EH 611
   title: Near Surface Geophysics
   level: PG
-  offered: [2023-24 II, 2025-26 I]
+  offered: [2021-22 II, 2023-24 II, 2025-26 I]
   link: https://es.iitgn.ac.in/assets/files/Near-SurfaceGeophysics_0.pdf
   note: Gravity, magnetic, electrical, electromagnetic and seismic methods for the top few hundred metres, with field demonstrations.
 
@@ -17,6 +17,7 @@
   level: PG
   offered: [2023-24 I, 2024-25 I, 2025-26 II]
   link: https://es.iitgn.ac.in/assets/files/POL1.pdf
+  note: First taught in Sem I 2022-23 as the special-topics course EH 691-8, Physics of Lithosphere.
 
 - code: EH 615
   title: Statistical Seismology
@@ -37,3 +38,8 @@
   offered: [2026-27 I]
   link: https://es.iitgn.ac.in/assets/files/Statistics-inEarthSciences.pdf
   note: Weekly labs in Python on Earth science datasets.
+
+- code: CE 201
+  title: Earth Materials and Processes
+  level: UG
+  offered: [2023-24 I, 2023-24 Summer]

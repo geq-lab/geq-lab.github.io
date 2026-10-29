@@ -56,7 +56,37 @@ img { max-width: 100%; height: auto; }
 
 figure { margin: 1em 0 1.2em; }
 figure img { display: block; width: 100%; border: 1px solid var(--rule); }
-figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.35em; }
+figure > a { display: block; }
+figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.35em; line-height: 1.4; }
+figcaption .credit { display: block; font-size: 0.78rem; }
+
+/* Figure grids: the home page grid and the row of thumbnails under a research theme.
+   Each image sits in a 3:2 box and is shown whole (no cropping), so a wide
+   cross-section or a portrait poster is letterboxed on white inside the border. */
+
+.figure-grid, .thumbs {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem 1.5rem;
+  margin: 0.5em 0 1.75em;
+}
+.figure-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); }
+.thumbs {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 12.5rem), 1fr));
+  gap: 1rem 1.25rem;
+  margin-top: 0.25em;
+}
+.figure-grid li, .thumbs li { margin: 0; min-width: 0; }
+.figure-grid figure, .thumbs figure { margin: 0; }
+.figure-grid img, .thumbs img {
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  background: var(--bg);
+}
+.figure-grid figcaption { font-size: 0.85rem; }
+.thumbs figcaption { font-size: 0.8rem; }
+.thumbs figcaption .credit { font-size: 0.74rem; }
 
 hr { border: 0; border-top: 1px solid var(--rule); margin: 2em 0; }
 
@@ -134,6 +164,17 @@ b, strong { font-weight: 600; }
 }
 .news-list .date { display: inline-block; min-width: 7em; }
 
+/* Awards: the same list as the news, on the home page and on /awards/ */
+.awards-list { list-style: none; padding: 0; }
+.awards-list li { margin-bottom: 0.5em; }
+.awards-list .date {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  min-width: 7em;
+}
+
 /* Research */
 
 .toc { list-style: none; padding: 0; margin-bottom: 1.5em; }
@@ -141,6 +182,9 @@ b, strong { font-weight: 600; }
 .toc li + li::before { content: " · "; color: var(--muted); }
 .theme { border-top: 1px solid var(--rule); padding-top: 0.5em; }
 .theme .meta { color: var(--muted); font-size: 0.95rem; }
+/* The lead figure of a theme: full width for a landscape figure, but a portrait one
+   stops at 36rem tall instead of filling the column. */
+.theme > figure img { width: auto; max-width: 100%; max-height: 36rem; }
 
 /* People */
 
@@ -216,6 +260,7 @@ details.abstracts .pubs { margin-top: 0.8em; }
 .news-item h3 { margin: 0 0 0.3em; }
 .news-item .date { margin: 0; }
 .news-item figure { max-width: 36rem; }
+.news-item figure img { width: auto; max-width: 100%; max-height: 36rem; }
 
 /* Teaching and projects */
 
@@ -236,7 +281,8 @@ address { font-style: normal; margin-bottom: 1em; }
   h2 { font-size: 1.3rem; }
   .brand-name { font-size: 1.05rem; }
   .brand img { height: 44px; width: 44px; }
-  .news-list .date { display: block; min-width: 0; }
+  .news-list .date, .awards-list .date { display: block; min-width: 0; }
+  .thumbs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
 }
 
 /* Print */

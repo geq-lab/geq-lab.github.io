@@ -15,11 +15,23 @@
   <h2>{{ t.title }}</h2>
   {% if t.image %}
   <figure>
-    <img src="/static/{{ t.image }}" alt="{{ t.image_alt }}"{% if t.image_w %} width="{{ t.image_w }}" height="{{ t.image_h }}"{% endif %} loading="lazy">
-    <figcaption>{{ t.image_credit }}</figcaption>
+    <a href="/static/{{ t.image }}"><img src="/static/{{ t.image }}" alt="{{ t.image_alt }}"{% if t.image_w %} width="{{ t.image_w }}" height="{{ t.image_h }}"{% endif %}{% if not loop.first %} loading="lazy"{% endif %}></a>
+    <figcaption>{% if t.image_caption %}{{ t.image_caption }} {% endif %}<span class="credit">{{ t.image_credit }}</span></figcaption>
   </figure>
   {% endif %}
   {{ t.summary }}
+  {% if t.images %}
+  <ul class="thumbs">
+    {% for f in t.images %}
+    <li>
+      <figure>
+        <a href="{{ f.href }}"><img src="{{ f.src }}" alt="{{ f.alt }}" width="{{ f.w }}" height="{{ f.h }}" loading="lazy"></a>
+        <figcaption>{{ f.caption }} <span class="credit">{{ f.credit }}</span></figcaption>
+      </figure>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
   {% if t.people %}
   <p class="meta">People: {% for p in t.people %}<a href="/people/#{{ p.slug }}">{{ p.name }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
   {% endif %}

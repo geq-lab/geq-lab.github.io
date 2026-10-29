@@ -9,7 +9,8 @@ SCHEMA.md describes the data files; HOWTO.md covers everyday edits.
 
 The build stops with a non-zero exit code and a message naming the file
 when a YAML or BibTeX file does not parse, a required field is missing,
-or a people slug is not in people.yml.
+a people slug is not in people.yml, a figure has no credit, or a
+site-relative link points at a page or anchor that does not exist.
 """
 
 import argparse
@@ -71,13 +72,15 @@ CATEGORY_LABEL = {
     "dataset": "Datasets", "preprint": "Preprints", "other": "Other",
     "abstract": "Conference abstracts"}
 
-# The eight pages in the navigation, in order. The home page is the logo link.
+# The nine pages in the navigation, in order. The home page is the logo link.
 PAGES = [
     ("research", "Research"), ("people", "People"),
     ("publications", "Publications"), ("news", "News"),
-    ("teaching", "Teaching"), ("projects", "Projects"),
-    ("join", "Join us"), ("contact", "Contact"),
+    ("awards", "Awards"), ("teaching", "Teaching"),
+    ("projects", "Projects"), ("join", "Join us"), ("contact", "Contact"),
 ]
+
+ID_RE = re.compile(r'\bid="([^"]+)"')
 
 
 class BuildError(Exception):
@@ -197,7 +200,7 @@ def as_list(value, where, key):
 # Content loaders
 # ----------------------------------------------------------------------------
 
-def load_site(content):
+def load_site(content, static):
     path = content / "site.yml"
     site = load_yaml(path, dict)
     where = str(path)
@@ -225,6 +228,10 @@ def load_site(content):
             home[key] = int(home.get(key, 5))
         except (TypeError, ValueError):
             raise BuildError(f"{where} home: {key} must be a whole number, got '{home.get(key)}'")
+    home["figures"] = load_figures(home.get("figures"), static, f"{where} home", "figures")
+    n_fig = len(home["figures"])
+    if home["figures"] and not 4 <= n_fig <= 8:
+        warn(f"{where} home: {n_fig} figures on the home page; SCHEMA.md suggests 4 to 8")
     site["home"] = home
     site.setdefault("contact_text", "")
     site.setdefault("footer_note", "")
@@ -373,6 +380,64 @@ def figure_size(static, image, where):
     return figure_output_size(w, h) if image.startswith("img/") else (w, h)
 
 
+def check_image(static, image, where):
+    """An image reference is a path under static/, such as img/figure.png."""
+    if image.startswith("/") or ".." in Path(image).parts or "\\" in image:
+        raise BuildError(f"{where}: image '{image}' must be a path under static/, like img/figure.png")
+    if image in STATIC_SKIP:
+        raise BuildError(f"{where}: image '{image}' is not published (see STATIC_SKIP in build.py)")
+    if not (static / image).is_file():
+        raise BuildError(f"{where}: image '{image}' is not under static/")
+
+
+def check_link(link, where, key="link"):
+    """A link is site-relative (/research/#wedges), an anchor, or an http(s) URL."""
+    if link and not (link.startswith("/") or link.startswith("#")
+                     or re.match(r"https?://", link, re.I)):
+        raise BuildError(f"{where}: {key} must start with /, # or http(s)://, got '{link[:40]}'")
+
+
+FIGURE_KEYS = ("image", "alt", "caption", "credit", "link")
+
+
+def load_figures(items, static, where, key):
+    """A list of {image, alt, caption, credit, link?} (site.yml home.figures,
+    research.yml images). image, alt, caption and credit are required; the
+    figure links to `link` if given, otherwise to the full-size image."""
+    items = as_list(items, where, key)
+    figures = []
+    for i, rec in enumerate(items):
+        here = f"{where} {key}[{i + 1}]"
+        if not isinstance(rec, dict):
+            raise BuildError(f"{here}: each figure must be a mapping with image, alt, caption and credit "
+                             f"(start it with '- image:')")
+        for k in rec:
+            if k not in FIGURE_KEYS:
+                warn(f"{here}: unknown field '{k}' (known: {', '.join(FIGURE_KEYS)})")
+        image = str(need(rec, "image", here)).strip()
+        check_image(static, image, here)
+        alt = str(need(rec, "alt", here)).strip()
+        caption = str(need(rec, "caption", here)).strip()
+        credit = str(need(rec, "credit", here)).strip()
+        link = str(rec.get("link") or "").strip()
+        check_link(link, here)
+        w, h = figure_size(static, image, here)
+        src = "/static/" + image
+        figures.append({
+            "image": image,
+            "src": src,
+            "alt": alt,
+            "caption": caption,
+            "credit": credit,
+            "link": link,
+            "href": link or src,
+            "w": w,
+            "h": h,
+            "where": here,
+        })
+    return figures
+
+
 def load_research(content, static, people_by_slug):
     path = content / "research.yml"
     raw = load_yaml(path, list)
@@ -392,8 +457,7 @@ def load_research(content, static, people_by_slug):
         image = str(rec.get("image") or "").strip()
         image_w = image_h = 0
         if image:
-            if not (static / image).is_file():
-                raise BuildError(f"{where}: image '{image}' is not under static/")
+            check_image(static, image, where)
             if not rec.get("image_credit"):
                 raise BuildError(f"{where}: image_credit is required when image is set")
             image_w, image_h = figure_size(static, image, where)
@@ -407,7 +471,9 @@ def load_research(content, static, people_by_slug):
             "image_w": image_w,
             "image_h": image_h,
             "image_alt": str(rec.get("image_alt") or rec.get("title")).strip(),
+            "image_caption": str(rec.get("image_caption") or "").strip(),
             "image_credit": str(rec.get("image_credit") or "").strip(),
+            "images": load_figures(rec.get("images"), static, where, "images"),
             "people": [people_by_slug[s] for s in slugs],
             "papers": [],   # filled from publications.bib
         })
@@ -455,6 +521,63 @@ def load_teaching(content):
             "note": str(rec.get("note") or "").strip(),
         })
     return courses
+
+
+def load_awards(content, people_by_slug):
+    """content/awards.yml (optional): a list of {year, date?, who, title, giver, for?, link?}.
+    `who` holds people.yml slugs, which link to the People page, or plain names
+    in quotes for someone outside the group. Newest first."""
+    path = content / "awards.yml"
+    if not path.exists():
+        return []
+    raw = load_yaml(path, list)
+    awards = []
+    for i, rec in enumerate(raw):
+        where = f"{path} entry {i + 1}"
+        if not isinstance(rec, dict):
+            raise BuildError(f"{where}: each award must be a mapping (start it with '- year:')")
+        year = str(need(rec, "year", where)).strip()
+        if not re.fullmatch(r"\d{4}", year):
+            raise BuildError(f"{where}: year must be four digits, got '{year}'")
+        year = int(year)
+        date = rec.get("date")
+        if isinstance(date, dt.datetime):
+            date = date.date()
+        elif date is not None and not isinstance(date, dt.date):
+            try:
+                date = dt.date.fromisoformat(str(date).strip())
+            except ValueError:
+                raise BuildError(f"{where}: date must be YYYY-MM-DD, got '{date}'")
+        if date and date.year != year:
+            raise BuildError(f"{where}: date {date} is not in year {year}")
+        who = []
+        for w in as_list(rec.get("who"), where, "who"):
+            w = str(w).strip()
+            if w in people_by_slug:
+                who.append({"name": people_by_slug[w]["name"], "slug": w})
+            elif SLUG_RE.match(w):
+                raise BuildError(f"{where}: who '{w}' looks like a slug but is not in people.yml")
+            else:
+                who.append({"name": w, "slug": ""})   # someone outside the group, shown as text
+        if not who:
+            raise BuildError(f"{where}: 'who' must name at least one person")
+        link = str(rec.get("link") or "").strip()
+        check_link(link, where)
+        awards.append({
+            "year": year,
+            "date": date,
+            "date_text": fmt_date(date) if date else str(year),
+            "who": who,
+            "title": str(need(rec, "title", where)).strip(),
+            "giver": str(need(rec, "giver", where)).strip(),
+            "for": str(rec.get("for") or "").strip(),
+            "link": link,
+            "order": i,
+            "where": where,
+        })
+    # Newest first: year, then date (undated entries after the dated ones of that year), then file order.
+    awards.sort(key=lambda a: (-a["year"], -(a["date"].toordinal() if a["date"] else 0), a["order"]))
+    return awards
 
 
 def load_join(content):
@@ -506,10 +629,19 @@ def load_news(content, static, people_by_slug):
                 raise BuildError(f"{where}: date must be YYYY-MM-DD, got '{date}'")
         image = str(meta.get("image") or "").strip()
         image_w = image_h = 0
+        image_caption = str(meta.get("image_caption") or "").strip()
+        image_credit = str(meta.get("image_credit") or "").strip()
         if image:
-            if not (static / image).is_file():
-                raise BuildError(f"{where}: image '{image}' is not under static/")
+            check_image(static, image, where)
             image_w, image_h = figure_size(static, image, where)
+            if not image_credit:
+                raise BuildError(f"{where}: image_credit is required when image is set; "
+                                 f"every figure on the site is credited")
+        elif image_caption or image_credit:
+            warn(f"{where}: image_caption/image_credit given but no image, ignoring them")
+            image_caption = image_credit = ""
+        link = str(meta.get("link") or "").strip()
+        check_link(link, where)
         slugs = as_list(meta.get("people"), where, "people")
         check_slugs(slugs, people_by_slug, where)
         items.append({
@@ -517,13 +649,17 @@ def load_news(content, static, people_by_slug):
             "title": title,
             "date": date,
             "date_text": fmt_date(date),
-            "link": str(meta.get("link") or "").strip(),
+            "link": link,
             "image": image,
+            "image_src": "/static/" + image if image else "",
             "image_w": image_w,
             "image_h": image_h,
+            "image_caption": image_caption,
+            "image_credit": image_credit,
             "people": [people_by_slug[s] for s in slugs],
             "body": md(body.strip()),
             "file": path.name,
+            "where": where,
         })
     items.sort(key=lambda n: (n["date"], n["file"]), reverse=True)
     return items
@@ -876,19 +1012,32 @@ def normalise_mode(im):
     return im.convert("RGB")
 
 
-def save_png(im, dest, small=False):
-    """Write a PNG; with small=True, use a 256-colour palette if the file would
-    otherwise exceed PNG_MAX_BYTES. Transparency is kept."""
+def save_png(im, dest, small=False, source_bytes=None):
+    """Write a PNG. With small=True, use a 256-colour palette if the plain file
+    would exceed PNG_MAX_BYTES, or if it comes out larger than the source it was
+    resized from (source_bytes): a resized low-colour figure re-encoded as
+    truecolour can double in size. Transparency is kept."""
     if small:
         im = normalise_mode(im)
         buf = io.BytesIO()
         im.save(buf, "PNG", optimize=True)
-        if buf.tell() <= PNG_MAX_BYTES:
-            dest.write_bytes(buf.getvalue())
+        plain = buf.getvalue()
+        if len(plain) <= PNG_MAX_BYTES and (source_bytes is None or len(plain) <= source_bytes):
+            dest.write_bytes(plain)
             return
-        if im.mode == "RGBA" and im.getchannel("A").getextrema()[0] == 255:
-            im = im.convert("RGB")   # no real transparency: the better quantiser applies
-        im = im.quantize(256, dither=Image.Dither.FLOYDSTEINBERG)
+        q = im
+        if q.mode == "RGBA" and q.getchannel("A").getextrema()[0] == 255:
+            q = q.convert("RGB")   # no real transparency: the better quantiser applies
+        q = q.quantize(256, dither=Image.Dither.FLOYDSTEINBERG)
+        buf = io.BytesIO()
+        q.save(buf, "PNG", optimize=True)
+        quantised = buf.getvalue()
+        # Keep the plain version when it is within the limit and the palette did not help.
+        if len(plain) <= PNG_MAX_BYTES and len(quantised) >= len(plain):
+            dest.write_bytes(plain)
+        else:
+            dest.write_bytes(quantised)
+        return
     im.save(dest, "PNG", optimize=True)
 
 
@@ -980,7 +1129,8 @@ def copy_static(static, out):
                     if resized:
                         im = im.resize(figure_output_size(w, h), Image.LANCZOS)
                     if suffix == ".png" and (resized or path.stat().st_size > PNG_MAX_BYTES):
-                        save_png(im, dest, small=True)
+                        save_png(im, dest, small=True,
+                                 source_bytes=path.stat().st_size if resized else None)
                         n += 1
                         continue
                     if resized:
@@ -1083,6 +1233,8 @@ def render_pages(env, out, site, data):
          intro=intro("publications"))
     page("news.html", "/news/", f"News | {name}",
          "News from the " + name + ".", intro=intro("news"))
+    page("awards.html", "/awards/", f"Awards | {name}",
+         "Awards, fellowships and prizes received in the " + name + ".", intro=intro("awards"))
     page("teaching.html", "/teaching/", f"Teaching | {name}",
          f"Courses taught by {data['pi']['name']} in the {site['department'] or 'Discipline of Earth Sciences'}, "
          f"{site['institute'] or 'IIT Gandhinagar'}.", intro=intro("teaching"))
@@ -1092,6 +1244,32 @@ def render_pages(env, out, site, data):
          "How to join the " + name + " as a student, postdoc or intern.")
     page("contact.html", "/contact/", f"Contact | {name}",
          "How to reach the " + name + ".")
+
+
+def check_internal_links(out, site, themes, news, awards):
+    """After rendering: every site-relative figure, news or award link must point
+    at a page or file that was built, and its #fragment at an id on that page."""
+    links = [(f["link"], f["where"]) for f in site["home"]["figures"]]
+    for t in themes:
+        links += [(f["link"], f["where"]) for f in t["images"]]
+    links += [(n["link"], n["where"]) for n in news]
+    links += [(a["link"], a["where"]) for a in awards]
+    ids = {}
+    for link, where in links:
+        if not link or not link.startswith("/"):
+            continue
+        path, _, frag = link.partition("#")
+        target = out / path.lstrip("/")
+        if target.is_dir():
+            target = target / "index.html"
+        if not target.is_file():
+            raise BuildError(f"{where}: link '{link}' points at nothing on the site")
+        if frag:
+            if target not in ids:
+                found = ID_RE.findall(target.read_text(encoding="utf-8")) if target.suffix == ".html" else []
+                ids[target] = set(found)
+            if frag not in ids[target]:
+                raise BuildError(f"{where}: link '{link}' names an anchor that is not on {path}")
 
 
 # ----------------------------------------------------------------------------
@@ -1122,7 +1300,7 @@ def build(content, static, templates, out):
             raise BuildError(f"{label} folder not found: {d}")
     check_out_dir(out, content, static, templates)
 
-    site = load_site(content)
+    site = load_site(content, static)
     people = load_people(content)
     people_by_slug = {p["slug"]: p for p in people}
     if site["pi"] not in people_by_slug:
@@ -1133,6 +1311,7 @@ def build(content, static, templates, out):
     courses = load_teaching(content)
     join_title, join_html = load_join(content)
     news = load_news(content, static, people_by_slug)
+    awards = load_awards(content, people_by_slug)
     pubs = load_publications(content, NameMatcher(people), themes_by_id)
 
     # Output folder: start clean.
@@ -1160,6 +1339,9 @@ def build(content, static, templates, out):
         "news": news,
         "news_by_year": group_by_year(news, lambda n: n["date"].year),
         "home_news": news[: site["home"]["news_count"]],
+        "awards": awards,
+        "awards_by_year": group_by_year(awards, lambda a: a["year"]),
+        "home_awards": awards[:3],
         "pubs": pubs,
         "pubs_by_year": publications_by_year(pubs),
         "home_pubs": home_pubs[: site["home"]["pubs_count"]],
@@ -1168,11 +1350,12 @@ def build(content, static, templates, out):
     }
     env = make_env(templates)
     render_pages(env, out, site, data)
+    check_internal_links(out, site, themes, news, awards)
     (out / ".nojekyll").write_text("", encoding="utf-8")
 
     print(f"built {out}: {len(people)} people ({n_photos} photos), {len(themes)} themes, "
-          f"{len(pubs)} publications, {len(news)} news items, {len(courses)} courses, "
-          f"{len(ongoing) + len(completed)} projects, {n_static} static files")
+          f"{len(pubs)} publications, {len(news)} news items, {len(awards)} awards, "
+          f"{len(courses)} courses, {len(ongoing) + len(completed)} projects, {n_static} static files")
 
 
 def main(argv=None):

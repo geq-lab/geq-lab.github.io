@@ -5,6 +5,22 @@
 {{ site.home.intro | md }}
 </section>
 
+{% if site.home.figures %}
+<section class="home-figures">
+  <h2 class="visually-hidden">Figures from our research</h2>
+  <ul class="figure-grid">
+    {% for f in site.home.figures %}
+    <li>
+      <figure>
+        <a href="{{ f.href }}"><img src="{{ f.src }}" alt="{{ f.alt }}" width="{{ f.w }}" height="{{ f.h }}"{% if loop.index > 3 %} loading="lazy"{% endif %}></a>
+        <figcaption>{{ f.caption }} <span class="credit">{{ f.credit }}</span></figcaption>
+      </figure>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
 {% if home_news %}
 <section>
   <h2>News</h2>
@@ -14,6 +30,18 @@
     {% endfor %}
   </ul>
   <p><a href="/news/">All news</a></p>
+</section>
+{% endif %}
+
+{% if home_awards %}
+<section>
+  <h2>Awards</h2>
+  <ul class="awards-list">
+    {% for a in home_awards %}
+    <li><span class="date">{{ a.date_text }}</span> <b>{% if a.link %}<a href="{{ a.link }}">{{ a.title }}</a>{% else %}{{ a.title }}{% endif %}</b>, {{ a.giver }}, to {% for w in a.who %}{% if w.slug %}<a href="/people/#{{ w.slug }}">{{ w.name }}</a>{% else %}{{ w.name }}{% endif %}{% if not loop.last %}{% if loop.revindex == 2 %} and {% else %}, {% endif %}{% endif %}{% endfor %}.</li>
+    {% endfor %}
+  </ul>
+  <p><a href="/awards/">All awards</a></p>
 </section>
 {% endif %}
 

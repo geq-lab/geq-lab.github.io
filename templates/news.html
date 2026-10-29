@@ -15,7 +15,10 @@
     <h3>{% if n.link %}<a href="{{ n.link }}">{{ n.title }}</a>{% else %}{{ n.title }}{% endif %}</h3>
     {% if n.image %}
     <figure>
-      <img src="/static/{{ n.image }}" alt="{{ n.title }}"{% if n.image_w %} width="{{ n.image_w }}" height="{{ n.image_h }}"{% endif %} loading="lazy">
+      <a href="{{ n.image_src }}"><img src="{{ n.image_src }}" alt="{{ n.image_caption or n.title }}"{% if n.image_w %} width="{{ n.image_w }}" height="{{ n.image_h }}"{% endif %} loading="lazy"></a>
+      {% if n.image_caption or n.image_credit %}
+      <figcaption>{{ n.image_caption }} <span class="credit">{{ n.image_credit }}</span></figcaption>
+      {% endif %}
     </figure>
     {% endif %}
     {{ n.body }}

@@ -4,7 +4,7 @@ We take PhD and MTech students through the Discipline of Earth Sciences at IIT G
 
 ## PhD
 
-Apply through IITGN's [PhD admissions page](https://iitgn.ac.in/admissions/phd) with Earth Sciences as the discipline. Students come to us from geology, geophysics, physics and civil engineering, and what matters is that you can pick up the numerics and the physics as you go. Two students in the group hold fellowships from outside the institute, the Prime Minister's Research Fellowship and the NIDM Doctoral Fellowship. If you are eligible for one of these, or for any other fellowship, say so when you write.
+Apply through IITGN's [PhD admissions page](https://iitgn.ac.in/admissions/phd) with Earth Sciences as the discipline. Students come to us from geology, geophysics, physics and civil engineering, and what matters is that you can pick up the numerics and the physics as you go. Two students in the group hold fellowships from outside the institute, the Prime Minister's Research Fellowship and the NIDM Doctoral Fellowship. If you are eligible for one of these, or for any other fellowship, say so when you write. PhD scholars registered at another university can also be co-supervised here and spend time with the group. One scholar from Mizoram University has been with us on that basis since 2024.
 
 ## MTech
 
@@ -16,7 +16,7 @@ Postdoc positions in the group depend on project funding and are advertised on t
 
 ## Internships
 
-Summer interns come through IITGN's [Summer Research Internship Programme (SRIP)](https://srip.iitgn.ac.in/), which runs over May to July. Students registered at another institute who want a longer research stay can apply through the [Visiting Students Programme](https://iitgn.ac.in/admissions/visiting-students-programme). Recent interns have worked on probabilistic tsunami hazard, lineament detection from elevation models with neural networks, phase picking with PhaseNet, and the group website.
+Summer interns come through IITGN's [Summer Research Internship Programme (SRIP)](https://srip.iitgn.ac.in/), which runs over May to July. Students registered at another institute who want a longer research stay can apply through the [Visiting Students Programme](https://iitgn.ac.in/admissions/visiting-students-programme). Recent interns have worked on probabilistic tsunami hazard, lineament detection from elevation models with neural networks, phase picking with PhaseNet, seismogenic depth in subduction zones, and the group website.
 
 ## What we look for
 

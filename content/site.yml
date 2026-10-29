@@ -12,6 +12,7 @@ contact:
     - Academic Block 12, Room 406-B
     - Indian Institute of Technology Gandhinagar
     - Palaj, Gandhinagar, Gujarat 382355, India
+  map_url: "https://campus.iitgn.ac.in/pdf/Reaching%20IITGN.pdf"
 links:
   - {label: IITGN faculty page, url: "https://iitgn.ac.in/faculty/earths/fac-utsav"}
   - {label: Google Scholar, url: "https://scholar.google.com/citations?user=hcisl7UAAAAJ"}
@@ -19,34 +20,77 @@ links:
   - {label: GitHub, url: "https://github.com/geq-lab"}
 home:
   intro: |
-    We are a research group in the Discipline of Earth Sciences at IIT Gandhinagar, led by Utsav Mannu. The group started in November 2021. It has PhD and MTech students, a visiting scholar and summer interns, and has had two postdocs.
+    We are a research group in the Discipline of Earth Sciences at IIT Gandhinagar, led by Utsav Mannu. The group started in November 2021. It has nine PhD students, four MTech students, a visiting PhD scholar from Mizoram University and summer interns, and has had two postdocs.
 
-    Our work has two strands. On the geodynamics side we write and run numerical models of how the solid Earth deforms over millions of years: accretionary wedges and forearc basins at subduction zones, rifts and plumes on the Indian margins, and the minerals of the deep mantle. On the earthquake side we work with recorded ground motion and earthquake catalogues: ground-motion models for the Himalaya, stochastic simulation of shaking, earthquake clustering, site response and seismic hazard for critical facilities.
+    Our work has two strands. On the geodynamics side we write and run numerical models of how the solid Earth deforms over millions of years. That means accretionary wedges and forearc basins at subduction zones, rifts and plumes on the Indian margins, and the minerals of the deep mantle. On the earthquake side we work with recorded ground motion and earthquake catalogues. That covers ground-motion models for the Himalaya, stochastic simulation of shaking, earthquake clustering, site response and seismic hazard for critical facilities.
 
     We sit in Academic Block 12 on the IITGN campus at Palaj, Gandhinagar, and run our models on the institute's PARAM Ananta supercomputer. If you want to work with us, the [Join us](/join/) page says how.
+  figures:
+    - image: img/wedge_model_t135.png
+      alt: "Cross-section of a WedgeFlow model of an accretionary wedge: tan sediment scraped off the incoming plate piles up against a blue backstop"
+      caption: Accretionary wedge in our WedgeFlow model after 1.35 million years of convergence
+      credit: WedgeFlow model output, Utsav Mannu, Geodynamics & Earthquake Lab
+      link: /research/#wedges
+    - image: img/thermal_maturity_wedge.png
+      alt: Two model cross-sections of an accretionary wedge, the upper coloured by vitrinite reflectance and the lower by rock type, with the frontal thrust drawn as a curved line
+      caption: Thermal maturity each sediment particle eventually reaches, drawn on the wedge as it was at 4 million years, with the active frontal thrust
+      credit: Figure 7 of Mannu et al. (2024), Solid Earth, CC BY 4.0
+      link: "https://doi.org/10.5194/se-15-1-2024"
+    - image: img/andaman_3d_subduction_model.png
+      alt: Three-dimensional block of a subduction model, with the subducted slab in red and orange hanging into the blue mantle below a stepped plate surface
+      caption: Slab in a 3D LaMEM subduction model after 12 million years, from Jagroop Singh's Andaman work
+      credit: Jagroop Singh, Geodynamics & Earthquake Lab
+      link: /research/#rifts
+    - image: img/cambay_free_air_gravity.jpg
+      alt: Colour map of the free-air gravity anomaly over Gujarat, with the coastline in black and two straight profile lines labelled P1 and P2
+      caption: Free-air gravity anomaly over Gujarat and the Cambay basin, with the two profiles we model
+      credit: Shravan Kumar, Geodynamics & Earthquake Lab, from public satellite gravity data
+      link: /research/#rifts
+    - image: img/flatfile_station_map.png
+      alt: Shaded-relief map of the Himalaya and northern India with earthquake epicentres as orange circles sized by magnitude, stations as red triangles and major cities marked
+      caption: Earthquakes and strong-motion stations behind the Indian flat file, records from 1986 to 2018
+      credit: Figure 1 of Sharma et al. (2025), Seismica, CC BY 4.0
+      link: "https://doi.org/10.26443/seismica.v4i2.1620"
+    - image: img/western_india_seismicity.png
+      alt: Map of western India with earthquake epicentres as circles sized by magnitude and coloured by depth
+      caption: Earthquakes of western India, symbol size by magnitude and colour by depth
+      credit: Utsav Mannu, Geodynamics & Earthquake Lab, from public earthquake catalogues
+      link: /research/#hazard
+    - image: img/geo2_phase_boundary.png
+      alt: Plot of temperature against pressure with a red line and a pink uncertainty band rising from about 18 GPa at low temperature to 40 GPa at 3000 K
+      caption: The rutile to CaCl2-type phase boundary of GeO2 from Gibbs free energies, with its uncertainty band
+      credit: Gulshan Kumar, Geodynamics & Earthquake Lab
+      link: /research/#deep
+    - image: img/andaman_reef_field.jpg
+      alt: Facies map of Badabalu beach, a drone photograph of the beach with the Holocene fringing reef outlined, and two close-up field photographs of the reef rock
+      caption: "Badabalu beach, South Andaman: facies map, drone image of the Holocene fringing reef and field photographs"
+      credit: Figure 3 of Misra et al. (2024), Frontiers in Marine Science, CC BY 4.0
+      link: "https://doi.org/10.3389/fmars.2024.1481299"
   news_count: 5
   pubs_count: 5
 contact_text: |
-  Utsav Mannu's office is Room 406-B in Academic Block 12 (AB 12) on the IIT Gandhinagar campus at Palaj, Gandhinagar. Email is the best way to reach us. The campus is on the Sabarmati, across the river from Gandhinagar and about 30 km from Ahmedabad; IITGN's [campus site](https://campus.iitgn.ac.in/) and [contact page](https://iitgn.ac.in/contact) have the institute's address and general numbers. If you are visiting, write ahead and we will meet you at AB 12.
+  Utsav Mannu's office is Room 406-B in Academic Block 12 (AB 12) on the IIT Gandhinagar campus at Palaj, Gandhinagar. Email is the best way to reach us. The campus is on the Sabarmati, across the river from Gandhinagar, about 30 km from Ahmedabad railway station and 22 km from the airport; IITGN's [route map](https://campus.iitgn.ac.in/pdf/Reaching%20IITGN.pdf), [campus site](https://campus.iitgn.ac.in/) and [contact page](https://iitgn.ac.in/contact) have the directions, the institute's address and general numbers. If you are visiting, write ahead and we will meet you at AB 12.
 footer_note: "Earth Sciences, IIT Gandhinagar"
 page_intros:
   research: |
-    Five themes, each with the people who work on it and the papers that came out of it. Most of what we do runs on code we write ourselves or on open geodynamic codes, with field data where we can get it.
+    Five themes, each with the people who work on it and the papers that came out of it. Most of what we do runs on code we write ourselves or on open geodynamic codes, with field data where we can get it. The figures are our own model outputs, maps and posters, or figures from our open-access papers, each credited.
   people: |
-    The group now, and those who have passed through it. Institutional email addresses are listed where we have one on record.
+    The group now, and those who have passed through it. Institutional email addresses are listed where we have one on record. Some photographs are from the Earth Sciences department site.
   publications: |
     Journal papers, conference papers, theses and datasets from the group, newest first. Names in bold are group members, past and present. The open access mark means the publisher's version is free to read. Conference abstracts are in a collapsed list at the end of each year.
   news: |
     Papers out, defences, awards, talks, new instruments and the odd workshop, newest first.
+  awards: |
+    Awards, fellowships and prizes received by members of the group, and the PI's earlier ones, newest first.
   teaching: |
-    Courses Utsav Mannu teaches in the Discipline of Earth Sciences at IITGN. The [IITGN course catalogue](https://iitgn.ac.in/academics/courses) has the official contents and credits; the links below go to the course outlines on the department site.
+    Courses Utsav Mannu teaches at IITGN, mostly in the Discipline of Earth Sciences. The [IITGN course catalogue](https://iitgn.ac.in/academics/courses) has the official contents and credits; the links below go to the course outlines on the department site.
   projects: |
     Funded projects and fellowships held in the group. Industry-sponsored work is listed on one line without client names.
 facilities:
-  - name: Raspberry Shake seismometers
-    note: "with the group since February 2024, used for field vibration monitoring."
+  - name: Raspberry Shake RS3D seismograph
+    note: "three-component, with the group since March 2024, used for field vibration monitoring."
   - name: Atoms proton precession magnetometer
-    note: "Model V5, acquired May 2026, for ground magnetic surveys and student training."
+    note: "Model V5, ordered May 2026 and delivered August 2026, for ground magnetic surveys and student training."
   - name: PARAM Ananta
     note: "IITGN's National Supercomputing Mission machine, where our geodynamic and DFT runs go."
   - name: High Computational Lab, AB 12/206

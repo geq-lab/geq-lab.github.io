@@ -16,6 +16,7 @@ content/people.yml       everyone, current and past
 content/research.yml     the research themes
 content/projects.yml     funded projects
 content/teaching.yml     courses
+content/awards.yml       awards, fellowships and prizes (optional)
 content/join.md          the Join us page (Markdown)
 content/publications.bib papers, chapters, conference papers, theses, datasets, preprints, abstracts
 content/news/YYYY-MM-DD-slug.md   one file per news item
@@ -27,7 +28,7 @@ templates/*.html         Jinja2 templates: base.html plus one per page
 _site/                   generated output (git-ignored)
 ```
 
-Output URLs (folder style): `/` (home), `/research/`, `/people/`, `/publications/`, `/news/`, `/teaching/`, `/projects/`, `/join/`, `/contact/`. Assets at `/static/...`, member photos at `/photos/<slug>.jpg`. The build writes `_site/.nojekyll`.
+Output URLs (folder style): `/` (home), `/research/`, `/people/`, `/publications/`, `/news/`, `/awards/`, `/teaching/`, `/projects/`, `/join/`, `/contact/`. Assets at `/static/...`, member photos at `/photos/<slug>.jpg`. The build writes `_site/.nojekyll`.
 
 ## content/site.yml
 
@@ -54,6 +55,12 @@ links:                               # shown in the footer, in this order; quote
   - {label: GitHub, url: "https://github.com/geq-lab"}
 home:
   intro: |                           # Markdown, two or three short paragraphs: who we are, what we do, where
+  figures:                           # 4 to 8 of the group's own research figures, shown as a grid under the intro
+    - image: img/wedge_model_t135.png      # under static/
+      alt: Cross-section of a numerical accretionary wedge model
+      caption: Accretionary wedge after 4 million years of convergence, WedgeFlow model   # one line, plain
+      credit: Geodynamics & Earthquake Lab   # required; for a figure from one of our open-access papers, "Figure 3 of Sharma et al. (2025), CC BY 4.0"
+      link: /research/#wedges              # optional, where a click goes (a research theme, a news item, a DOI); without it the figure opens the full-size image
   news_count: 5
   pubs_count: 5
 contact_text: |                      # Markdown, a short paragraph for the contact page (how to reach, visiting)
@@ -63,6 +70,7 @@ page_intros:                         # optional Markdown, one short paragraph sh
   people: |
   publications: |
   news: |
+  awards: |
   teaching: |
   projects: |
 facilities:                          # shown at the end of the Research page
@@ -100,11 +108,16 @@ Sections on the People page: Faculty; Postdoctoral fellows and research staff; P
 - id: wedges                   # short id, used as the anchor /research/#wedges and in publications.bib `theme`
   title: Subduction wedges and forearc basins
   summary: |                   # Markdown, about 120 to 180 words, plain language, no slogans
-  image: img/wedge_model_t135.png          # optional, under static/
+  image: img/wedge_model_t135.png          # optional, under static/: the lead figure of the theme
   image_alt: Cross-section of a numerical wedge model
-  image_credit: WedgeFlow model output, Geodynamics & Earthquake Lab   # required when image is set
+  image_caption: one plain line shown under the lead figure   # optional
+  image_credit: WedgeFlow model output, Geodynamics & Earthquake Lab   # required when image is set; the credit alone, the description goes in image_caption
+  images:                                  # optional, further figures shown as a row of thumbnails after the text
+    - {image: img/xxx.png, alt: ..., caption: ..., credit: ..., link: ...}   # link optional; a figure without one opens the full-size image, and so does the lead figure
   people: [saurabh-choubey, utsav-mannu]   # slugs; the build links them to the People page
 ```
+
+Figures anywhere on the site are the group's own (model outputs, maps, field photographs, posters) or figures from the group's own open-access papers (CC BY), each with a credit line; nothing from other people's papers, textbooks or the web. Figures must not show or name industry clients or their sites.
 
 ## content/projects.yml
 
@@ -115,6 +128,20 @@ Sections on the People page: Faculty; Postdoctoral fellows and research staff; P
   years: 2018 to 2023
   status: completed            # completed | ongoing
   note: one line, optional
+```
+
+## content/awards.yml
+
+Every award, fellowship, prize, medal, best-paper or best-poster award, competitive travel grant and formal distinction received by the PI or by a member while in the group (and the PI's earlier ones). Rendered at `/awards/` newest first, grouped by year (dated entries before undated ones within a year), and the three latest on the home page under the news. Nominations and applications that did not result in an award are not listed. The file is optional: without it the Awards page says "Nothing here yet".
+
+```yaml
+- year: 2025
+  date: 2025-01-04            # optional, exact date if known
+  who: [utsav-mannu]          # slugs from people.yml (linked to the People page), or a plain name in quotes for someone outside the group
+  title: Alumni Award, IISER Kolkata
+  giver: IISER Kolkata        # the body that gave it
+  for: optional, one line on what it was for
+  link: https://...           # optional
 ```
 
 ## content/teaching.yml
@@ -136,6 +163,8 @@ title: Short title in sentence case
 date: 2026-06-10
 link: https://doi.org/...      # optional
 image: img/some_figure.png     # optional, under static/
+image_caption: one plain line shown under the figure   # optional
+image_credit: Geodynamics & Earthquake Lab   # required when image is set; the build stops without it
 people: [omkar]                # optional slugs
 ---
 One to three plain sentences. Markdown allowed. No marketing language.
@@ -157,10 +186,10 @@ Authors as `Surname, Given and Surname, Given`; a mononym as `{Omkar}`. The buil
 
 ## Build behaviour
 
-- `python build.py` renders everything into `_site/` in under a few seconds (`--content DIR`, `--static DIR`, `--templates DIR` and `--out DIR` override the defaults, so a test can run on fixture content); it exits non-zero with a clear message on a malformed YAML or BibTeX file, a missing required field, or a `people:` slug that is not in people.yml.
+- `python build.py` renders everything into `_site/` in under a few seconds (`--content DIR`, `--static DIR`, `--templates DIR` and `--out DIR` override the defaults, so a test can run on fixture content); it exits non-zero with a clear message on a malformed YAML or BibTeX file, a missing required field, a `people:` slug that is not in people.yml, a figure without a credit, or a site-relative `link` (figure, news item or award) that points at a page or anchor the build did not produce.
 - Photos: `content/photos/<slug>.(jpg|jpeg|png)` are EXIF-rotated, centre-cropped to a square and saved as `_site/photos/<slug>.jpg` at 480x480, quality 85. The logo is written at 1080, 240 and 64 px (`_site/static/logo.png`, `logo-240.png`, `favicon.png`). Figures under `static/img/` larger than 1600 px on the long side are resized to 1600 on output.
 - Markdown via `markdown` with `extra` and `sane_lists`; links open in the same tab; no raw HTML needed by editors.
-- Every page: `<title>`, `<meta name=description>`, `<meta name=viewport>`, canonical URL, the favicon, `<nav>` with the eight pages, a footer with the institute line and links.
+- Every page: `<title>`, `<meta name=description>`, `<meta name=viewport>`, canonical URL, the favicon, `<nav>` with the nine pages, a footer with the institute line and links.
 - No external JavaScript, no analytics, no web fonts, no tracking. One small inline script at most (for the abstracts toggle, or none: use `<details>`).
 
 ## Look
@@ -169,7 +198,7 @@ Academic, not corporate: it should read like a university research group page. W
 
 ## Deployment
 
-`.github/workflows/pages.yml`: on push to `main` and on `workflow_dispatch`; permissions `contents: read`, `pages: write`, `id-token: write`; job `build` (`actions/checkout@v6`, `actions/setup-python@v6` with 3.12, `pip install -r requirements.txt`, `python build.py`, `actions/configure-pages@v5`, `actions/upload-pages-artifact@v4` with `path: _site`), job `deploy` (`actions/deploy-pages@v4`, environment `github-pages`, concurrency group `pages` with `cancel-in-progress: false`). Pages source in the repository settings: GitHub Actions (one-time). PNG figures over 300 KB are written with a 256-colour palette; a local preview must be served over HTTP (`python -m http.server -d _site`) for root-relative paths to resolve.
+`.github/workflows/pages.yml`: on push to `main` and on `workflow_dispatch`; permissions `contents: read`, `pages: write`, `id-token: write`; job `build` (`actions/checkout@v6`, `actions/setup-python@v6` with 3.12, `pip install -r requirements.txt`, `python build.py`, `actions/configure-pages@v5`, `actions/upload-pages-artifact@v4` with `path: _site`), job `deploy` (`actions/deploy-pages@v4`, environment `github-pages`, concurrency group `pages` with `cancel-in-progress: false`). Pages source in the repository settings: GitHub Actions (one-time). PNG figures over 300 KB, and resized PNGs that would otherwise come out larger than their source, are written with a 256-colour palette; a local preview must be served over HTTP (`python -m http.server -d _site`) for root-relative paths to resolve.
 
 ## House rules for content
 

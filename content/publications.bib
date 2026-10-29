@@ -3,8 +3,9 @@
 % Every DOI below was checked against the Crossref or DataCite registry on 29 Oct 2026; titles, venues,
 % years, volumes, pages and author lists come from those records. Entries without a DOI (older
 % conference abstracts) come from the meeting programmes as recorded in OpenAlex, Google Scholar or
-% the IITGN Digital Repository. Conference abstracts before 2019 are listed selectively (the EGU 2017
-% and 2018 abstracts are not in; see REVIEW_pubs.md). Citation keys: surnameYYYYword. Mononyms in
+% the IITGN Digital Repository, or from the abstract PDFs and conference programmes themselves (the
+% GeoMod 2014, EGU 2017, EGU 2018, AES-2026 and EGU 2026 entries, added 29 Oct 2026 evening; see
+% review/APPLIED_29Oct_evening.md). Citation keys: surnameYYYYword. Mononyms in
 % braces: {Omkar}, {Lalramnunkimi}. openaccess = {true} means the publisher's version is free to read.
 % Theme ids: wedges, rifts, statseis, hazard, deep (content/research.yml).
 
@@ -174,6 +175,20 @@
   theme = {wedges}
 }
 
+@article{ghosh2025equation,
+  author = {Ghosh, Sumit and Kumar, Gulshan and Pillai, Sharad Babu and Dutta, Rajkrishna},
+  title = {{Equation of state of the rutile and CaCl2-type phases of GeO2 to 70 GPa}},
+  journal = {Journal of Applied Physics},
+  year = {2025},
+  month = {December},
+  volume = {138},
+  number = {23},
+  pages = {235902},
+  doi = {10.1063/5.0302993},
+  openaccess = {true},
+  theme = {deep}
+}
+
 % ---------------------------------------------------------------------------
 % Conference papers (full papers in proceedings)
 % ---------------------------------------------------------------------------
@@ -219,8 +234,47 @@
 }
 
 % ---------------------------------------------------------------------------
-% Thesis
+% Theses
 % ---------------------------------------------------------------------------
+
+@phdthesis{sharma2026development,
+  author = {Sharma, Shikha},
+  title = {{Development of regionally adaptable Ground Motion Prediction Equation (GMPE) for the Himalayan region}},
+  school = {Indian Institute of Technology Gandhinagar},
+  year = {2026},
+  note = {Defended 22 December 2025; degree awarded at the 15th Convocation, 20 June 2026; supervisors Utsav Mannu and Sanjay Singh Bora; external examiner S. T. G. Raghukanth, IIT Madras},
+  theme = {statseis}
+}
+
+@mastersthesis{jana2026numerical,
+  author = {Jana, Anindita},
+  title = {{Numerical Investigation of the Effect of Convergence Velocity on the Structural Evolution of Accretionary Wedges Using the SiStER Code}},
+  school = {Indian Institute of Technology Gandhinagar},
+  year = {2026},
+  month = {May},
+  note = {MTech thesis, Earth Science; defended 26 May 2026; supervisor Utsav Mannu},
+  theme = {wedges}
+}
+
+@mastersthesis{singh2025evidence,
+  author = {Singh, Jagroop},
+  title = {{Evidence of Slab Tearing in the Andaman Nicobar Region: A 3D Geodynamic and Forward Gravity Modeling Approach}},
+  school = {Indian Institute of Technology Gandhinagar},
+  year = {2025},
+  month = {July},
+  note = {MTech thesis, Earth Science; defended 25 July 2025; supervisor Utsav Mannu},
+  theme = {rifts}
+}
+
+@mastersthesis{bhamare2025geological,
+  author = {Bhamare, Dakshata},
+  title = {{Geological Insights into Megathrust Earthquake Dynamics through ETAS Modeling}},
+  school = {Indian Institute of Technology Gandhinagar},
+  year = {2025},
+  month = {May},
+  note = {MTech thesis, Earth Science; defended 25 May 2025; supervisor Utsav Mannu; examiners R. N. Singh and Projesh Nath Choudhury},
+  theme = {statseis}
+}
 
 @phdthesis{mannu2017forearc,
   author = {Mannu, Utsav},
@@ -288,9 +342,81 @@
   address = {Institute of Seismological Research, Gandhinagar, India},
   year = {2026},
   month = {January},
-  note = {Poster},
+  note = {Poster 11, 23 January 2026; the printed programme lists it as 'Probabilistic Characterization of Gutenberg-Richter b value Parameter'},
   abstract_only = {true},
   theme = {statseis}
+}
+
+@inproceedings{sharma2026evaluation,
+  author = {Sharma, Shikha and {Omkar} and Bora, Sanjay Singh and Nandan, Shyam and Mannu, Utsav},
+  title = {{Evaluation of Himalayan Ground Motion Models with Global Active Shallow Crustal Models Using OpenQuake}},
+  booktitle = {International Conference on Intraplate and Himalayan Seismology: Developments in the Last 25 Years, and the 9th Annual Convention on Advances in Earthquake Science (AES-2026)},
+  address = {Institute of Seismological Research, Gandhinagar, India},
+  year = {2026},
+  month = {January},
+  note = {Poster 41, 24 January 2026; third prize in the poster competition},
+  abstract_only = {true},
+  theme = {statseis}
+}
+
+@inproceedings{upadhyay2026curvature,
+  author = {Upadhyay, Virat and Mannu, Utsav},
+  title = {{Understanding the Role of Surface Curvature in Earthquake Amplification and Landslide Hazards}},
+  booktitle = {International Conference on Intraplate and Himalayan Seismology: Developments in the Last 25 Years, and the 9th Annual Convention on Advances in Earthquake Science (AES-2026)},
+  address = {Institute of Seismological Research, Gandhinagar, India},
+  year = {2026},
+  month = {January},
+  note = {Poster 47, 24 January 2026},
+  abstract_only = {true},
+  theme = {hazard}
+}
+
+@inproceedings{bhamare2026megathrust,
+  author = {Bhamare, Dakshata and {Omkar} and Nandan, Shyam and Mannu, Utsav},
+  title = {{Geological Insights into Megathrust Earthquake Dynamics through ETAS Modeling}},
+  booktitle = {International Conference on Intraplate and Himalayan Seismology: Developments in the Last 25 Years, and the 9th Annual Convention on Advances in Earthquake Science (AES-2026)},
+  address = {Institute of Seismological Research, Gandhinagar, India},
+  year = {2026},
+  month = {January},
+  note = {Poster 13, 23 January 2026; from Dakshata Bhamare's MTech thesis},
+  abstract_only = {true},
+  theme = {statseis}
+}
+
+@inproceedings{singh2026intraplate,
+  author = {Singh, Sumit and Ghosh, Dip},
+  title = {{Understanding Intraplate Earthquakes: Causes, Origins, and Investigation}},
+  booktitle = {International Conference on Intraplate and Himalayan Seismology: Developments in the Last 25 Years, and the 9th Annual Convention on Advances in Earthquake Science (AES-2026)},
+  address = {Institute of Seismological Research, Gandhinagar, India},
+  year = {2026},
+  month = {January},
+  note = {Poster 25, 23 January 2026; Sumit Singh listed with IIT Gandhinagar and the Department of Geology, University of Calcutta},
+  abstract_only = {true}
+}
+
+@inproceedings{mannu2026geodynamic,
+  author = {Mannu, Utsav},
+  title = {{Geodynamic models of subduction wedges and strain accumulation due to Smectite-Illite transformation}},
+  booktitle = {International Conference on Intraplate and Himalayan Seismology: Developments in the Last 25 Years, and the 9th Annual Convention on Advances in Earthquake Science (AES-2026)},
+  address = {Institute of Seismological Research, Gandhinagar, India},
+  year = {2026},
+  month = {January},
+  note = {Talk, Session 5, 25 January 2026},
+  abstract_only = {true},
+  theme = {wedges}
+}
+
+@inproceedings{kumar2026highpressure,
+  author = {Kumar, Gulshan and Ghosh, Sumit and Pillai, Sharad Babu and Dutta, Rajkrishna},
+  title = {{High-pressure elastic properties of GeO2 polymorphs up to 120 GPa}},
+  booktitle = {EGU General Assembly 2026},
+  address = {Vienna, Austria},
+  year = {2026},
+  month = {May},
+  doi = {10.5194/egusphere-egu26-5107},
+  note = {Abstract EGU26-5107, session GMPV8.2. The Copernicus record spells the last author Rajkrishan},
+  abstract_only = {true},
+  theme = {deep}
 }
 
 @inproceedings{misra2024eustatic,
@@ -328,7 +454,7 @@
   address = {Anchorage, Alaska, USA},
   year = {2024},
   month = {April},
-  note = {Poster; Best Poster Award},
+  note = {Poster; SSA 2024 Annual Meeting Student Presentation Award},
   abstract_only = {true},
   theme = {statseis}
 }
@@ -379,6 +505,31 @@
   theme = {wedges}
 }
 
+@inproceedings{mannu2018modelling,
+  author = {Mannu, Utsav and Ueda, Kosuke and Gerya, Taras and Willett, Sean D.},
+  title = {{Modelling accretionary wedge formation interacting with backarc extension: a parametric study}},
+  booktitle = {EGU General Assembly 2018},
+  address = {Vienna, Austria},
+  year = {2018},
+  month = {April},
+  url = {https://meetingorganizer.copernicus.org/EGU2018/EGU2018-9810.pdf},
+  note = {Geophysical Research Abstracts, Vol. 20, EGU2018-9810},
+  abstract_only = {true},
+  theme = {wedges}
+}
+
+@inproceedings{vandervoort2018mosaic,
+  author = {van der Voort, Tessa Sophia and Mannu, Utsav and Blattmann, Thomas and Eglinton, Timothy},
+  title = {{Deconvolving the coastal carbon mosaic}},
+  booktitle = {EGU General Assembly 2018},
+  address = {Vienna, Austria},
+  year = {2018},
+  month = {April},
+  url = {https://meetingorganizer.copernicus.org/EGU2018/EGU2018-2463.pdf},
+  note = {Geophysical Research Abstracts, Vol. 20, EGU2018-2463},
+  abstract_only = {true}
+}
+
 @inproceedings{strasser2018submarine,
   author = {Strasser, Michael and Kremer, Katrina and Mannu, Utsav and Moernaut, Jasper and Moore, Gregory F.},
   title = {{Submarine mass movements: from accretionary prism evolution and climate preconditioning to paleoseismologic implications}},
@@ -386,6 +537,32 @@
   year = {2018},
   month = {May},
   note = {Abstract SSS04-09},
+  abstract_only = {true},
+  theme = {wedges}
+}
+
+@inproceedings{mannu2017seamount,
+  author = {Mannu, Utsav and Ueda, Kosuke and Willett, Sean D. and Gerya, Taras and Strasser, Michael},
+  title = {{Seamount subduction underneath an accretionary wedge: modelling mass wasting and wedge collapse}},
+  booktitle = {EGU General Assembly 2017},
+  address = {Vienna, Austria},
+  year = {2017},
+  month = {April},
+  url = {https://meetingorganizer.copernicus.org/EGU2017/EGU2017-12680.pdf},
+  note = {Geophysical Research Abstracts, Vol. 19, EGU2017-12680},
+  abstract_only = {true},
+  theme = {wedges}
+}
+
+@inproceedings{mannu2017modelling,
+  author = {Mannu, Utsav and Ueda, Kosuke and Willett, Sean D. and Gerya, Taras and Strasser, Michael},
+  title = {{Modelling Forearc Basin Formation and Stratigraphy}},
+  booktitle = {EGU General Assembly 2017},
+  address = {Vienna, Austria},
+  year = {2017},
+  month = {April},
+  url = {https://meetingorganizer.copernicus.org/EGU2017/EGU2017-10823.pdf},
+  note = {Geophysical Research Abstracts, Vol. 19, EGU2017-10823},
   abstract_only = {true},
   theme = {wedges}
 }
@@ -407,6 +584,21 @@
   year = {2014},
   month = {December},
   note = {Abstract T33B-4686},
+  abstract_only = {true},
+  theme = {wedges}
+}
+
+@inproceedings{mannu2014dynamic,
+  author = {Mannu, Utsav and Ueda, Kosuke and Willett, Sean D. and Gerya, Taras and Strasser, Michael},
+  title = {{Dynamic Modelling of Accretionary Prisms and Stratigraphy of Forearc basins}},
+  booktitle = {Proceedings of GeoMod2014: Modelling in Geosciences, Programme and Extended Abstracts},
+  address = {Potsdam, Germany},
+  publisher = {GFZ German Research Centre for Geosciences},
+  year = {2014},
+  month = {September},
+  pages = {131--135},
+  doi = {10.2312/GFZ.geomod.2014.001},
+  note = {Extended abstract, session Tectonics and Surface Processes; meeting held 31 August to 5 September 2014. The DOI is that of the whole proceedings volume},
   abstract_only = {true},
   theme = {wedges}
 }

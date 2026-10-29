@@ -45,12 +45,15 @@ News items are one file each in `content/news/`. On github.com open that folder,
 title: Three abstracts accepted for EGU 2027
 date: 2026-11-03
 link: https://meetingorganizer.copernicus.org/...    # optional
+image: img/declustering_maps.png                     # optional, a figure under static/img/
+image_caption: Where five declustering methods bias the background rate   # optional, one plain line
+image_credit: Omkar, Geodynamics & Earthquake Lab    # required whenever image is set
 people: [omkar, saurabh-choubey]                     # optional, slugs from people.yml
 ---
 Omkar, Saurabh and Utsav will present in Vienna in April. One to three plain sentences are enough.
 ```
 
-Keep the three dashes exactly as shown, above and below the header. The date is `YYYY-MM-DD`. The newest item goes to the top of the News page and the home page shows the five most recent. If you name someone in `people:`, the slug must exist in `people.yml` or the build will stop and tell you so.
+Keep the three dashes exactly as shown, above and below the header. A figure is optional: upload the picture to `static/img/` first (the same "Add file" then "Upload files" route as a photo), then name it in `image:`. It must be our own figure (a model output, a map, a field photograph, a poster panel) or a figure from one of our open-access (CC BY) papers, never one from someone else's paper or the web, and `image_credit` is required, so the build stops without it. Nothing on a figure may show or name an industry client or its site. The date is `YYYY-MM-DD`. The newest item goes to the top of the News page and the home page shows the five most recent. Awards go in `content/awards.yml` in the same way (year, who, title, giver; see SCHEMA.md). If you name someone in `people:`, the slug must exist in `people.yml` or the build will stop and tell you so.
 
 ## Add a paper
 
