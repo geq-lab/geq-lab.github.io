@@ -33,9 +33,9 @@ home:
 
     '
   figures:
-  - image: img/wedge_model_t135.png
-    alt: 'Cross-section of a WedgeFlow model of an accretionary wedge: tan sediment scraped off the incoming plate piles up against a blue backstop'
-    caption: Accretionary wedge in our WedgeFlow model after 1.35 million years of convergence
+  - image: img/wedge_strata_2p66myr.png
+    alt: Cross-section of a WedgeFlow accretionary wedge model with layered strata, faults in red and the decollement in blue
+    caption: Accretionary wedge after 2.7 million years of convergence in WedgeFlow, with strata bands, faults in red and the decollement in blue
     credit: WedgeFlow model output, Utsav Mannu, Geodynamics & Earthquake Lab
     link: /research/#wedges
   - image: img/thermal_maturity_wedge.png

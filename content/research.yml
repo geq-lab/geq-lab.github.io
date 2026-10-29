@@ -4,11 +4,19 @@
     subduction at the Nankai-Hyuga margin. Earlier papers covered forearc basin stratigraphy and forearc high uplift on the Cyprus margin.
 
     '
-  image: img/wedge_model_t135.png
-  image_alt: 'Cross-section of a WedgeFlow model of an accretionary wedge: tan sediment scraped off the incoming plate piles up against a blue backstop'
-  image_caption: Accretionary wedge in our WedgeFlow model after 1.35 million years of convergence
+  image: img/wedge_strata_2p66myr.png
+  image_alt: Cross-section of a WedgeFlow accretionary wedge model with layered strata, faults in red and the decollement in blue
+  image_caption: Accretionary wedge after 2.7 million years of convergence in WedgeFlow, with strata bands, faults in red and the decollement in blue
   image_credit: WedgeFlow model output, Utsav Mannu, Geodynamics & Earthquake Lab
   images:
+  - image: img/wedge_strainrate_2p66myr.png
+    alt: Strain rate in the same wedge model, bright along the active thrust and the decollement
+    caption: Strain rate in the same model, bright where the wedge deforms now, along the frontal thrust and the decollement
+    credit: WedgeFlow model output, Utsav Mannu, Geodynamics & Earthquake Lab
+  - image: img/wedge_flexing_basement_2p24myr.png
+    alt: WedgeFlow wedge on a flexing basement after 2.2 million years
+    caption: The same setup on a flexing basement after 2.2 million years, from the WedgeFlow 2 development runs
+    credit: WedgeFlow model output, Utsav Mannu, Geodynamics & Earthquake Lab
   - image: img/thermal_maturity_wedge.png
     alt: Two model cross-sections of an accretionary wedge, the upper coloured by vitrinite reflectance and the lower by rock type, with the frontal thrust drawn as a curved line
     caption: Thermal maturity each sediment particle eventually reaches, drawn on the wedge as it was at 4 million years, with the active frontal thrust
