@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Research</h1>
+{{ intro }}
+{% if themes|length > 1 %}
+<ul class="toc">
+  {% for t in themes %}
+  <li><a href="#{{ t.id }}">{{ t.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% for t in themes %}
+<section class="theme" id="{{ t.id }}">
+  <h2>{{ t.title }}</h2>
+  {% if t.image %}
+  <figure>
+    <img src="/static/{{ t.image }}" alt="{{ t.image_alt }}"{% if t.image_w %} width="{{ t.image_w }}" height="{{ t.image_h }}"{% endif %} loading="lazy">
+    <figcaption>{{ t.image_credit }}</figcaption>
+  </figure>
+  {% endif %}
+  {{ t.summary }}
+  {% if t.people %}
+  <p class="meta">People: {% for p in t.people %}<a href="/people/#{{ p.slug }}">{{ p.name }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
+  {% endif %}
+  {% set papers = t.papers | rejectattr("category", "equalto", "abstract") | list %}
+  {% if papers %}
+  <h3>Papers</h3>
+  <ul class="pubs compact">
+    {% for p in papers %}
+    <li>{{ p.cite_html }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</section>
+{% endfor %}
+
+{% if site.facilities %}
+<section id="facilities">
+  <h2>Facilities</h2>
+  <ul>
+    {% for f in site.facilities %}
+    <li>{{ f.name }}{% if f.note %}, {{ f.note }}{% endif %}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% endblock %}

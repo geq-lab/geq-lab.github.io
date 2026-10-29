@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Contact</h1>
+{{ site.contact_text | md }}
+<p>
+  <b>{{ pi.name }}</b>{% if pi.title_line %}<br>{{ pi.title_line }}{% endif %}
+</p>
+<address>
+  {% for line in site.contact.address %}{{ line }}<br>{% endfor %}
+</address>
+<p>
+  Email <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>
+  {% if site.contact.phone %}<br>Phone {{ site.contact.phone }}{% endif %}
+  {% if site.contact.map_url %}<br><a href="{{ site.contact.map_url }}">Map</a>{% endif %}
+</p>
+{% endblock %}

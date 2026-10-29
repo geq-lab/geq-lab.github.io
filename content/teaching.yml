@@ -1,0 +1,39 @@
+- code: EH 610
+  title: Engineering Seismology and Seismic Hazard Analysis
+  level: PG
+  offered: [2024-25 II, 2025-26 II]
+  link: https://es.iitgn.ac.in/assets/files/Lecture_0.pdf
+  note: From the rupture to the hazard curve, with probability built up inside the course.
+
+- code: EH 611
+  title: Near Surface Geophysics
+  level: PG
+  offered: [2023-24 II, 2025-26 I]
+  link: https://es.iitgn.ac.in/assets/files/Near-SurfaceGeophysics_0.pdf
+  note: Gravity, magnetic, electrical, electromagnetic and seismic methods for the top few hundred metres, with field demonstrations.
+
+- code: EH 614
+  title: Physics of the Lithosphere
+  level: PG
+  offered: [2023-24 I, 2024-25 I, 2025-26 II]
+  link: https://es.iitgn.ac.in/assets/files/POL1.pdf
+
+- code: EH 615
+  title: Statistical Seismology
+  level: PG
+  offered: [2022-23 II, 2024-25 II]
+  link: https://es.iitgn.ac.in/assets/files/Statistical-Seismology-CourseContent.pdf
+
+- code: EH 618
+  title: Computational Tools for Earth System Modeling
+  level: PG
+  offered: [2024-25 I, 2026-27 I]
+  link: https://es.iitgn.ac.in/assets/files/Course-Plan.pdf
+  note: A lab course. Finite differences and a thermomechanical code written from scratch in Python or MATLAB.
+
+- code: EH 639
+  title: Statistics for Earth Sciences
+  level: PG
+  offered: [2026-27 I]
+  link: https://es.iitgn.ac.in/assets/files/Statistics-inEarthSciences.pdf
+  note: Weekly labs in Python on Earth science datasets.

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Projects</h1>
+{{ intro }}
+{% if not ongoing and not completed %}
+<p>Nothing here yet.</p>
+{% endif %}
+
+{% for heading, items in [("Ongoing", ongoing), ("Completed", completed)] %}
+{% if items %}
+<section>
+  <h2>{{ heading }}</h2>
+  <ul class="projects">
+    {% for p in items %}
+    <li><b>{{ p.title }}</b>. {{ p.agency }}{% if p.role %} ({{ p.role }}){% endif %}{% if p.years %}, {{ p.years }}{% endif %}.{% if p.note %} {{ p.note }}{% endif %}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% endfor %}
+{% endblock %}

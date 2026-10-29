@@ -1,0 +1,293 @@
+# People of the Geodynamics & Earthquake Lab. See SCHEMA.md for the fields.
+# Current members first (the build sorts them by role, then by since), then alumni (by until, newest first), then interns.
+# Only institutional email addresses, and only where one is on record. No phone numbers, nothing personal.
+
+# Faculty
+
+- slug: utsav-mannu
+  name: Utsav Mannu
+  role: Principal Investigator
+  group: current
+  title_line: "Assistant Professor, Earth Sciences (jointly with Maritime Engineering), IIT Gandhinagar"
+  since: 2021
+  topic: Geodynamic models of subduction wedges and forearc basins, ground-motion models and earthquake statistics, seismic hazard for critical facilities
+  email: utsav.mannu@iitgn.ac.in
+  links:
+    scholar: "https://scholar.google.com/citations?user=hcisl7UAAAAJ"
+    orcid: "https://orcid.org/0000-0003-2416-3958"
+    website: "https://iitgn.ac.in/faculty/earths/fac-utsav"
+    github: "https://github.com/GeoD-Lab"
+  bio: |
+    Utsav Mannu is an Assistant Professor of Earth Sciences at IIT Gandhinagar, where he started in November 2021. He did an integrated BS-MS in Earth Science at IISER Kolkata (2012) and a PhD at ETH Zurich (2016) on multi-scale numerical modelling of accretionary wedges and forearc basins. He stayed at ETH Zurich as a postdoc until the end of 2017, was a DST INSPIRE Faculty fellow at IISER Pune from 2018 to 2021, and spent part of 2019 as visiting faculty at the Earthquake Research Institute, University of Tokyo. His work covers thermomechanical models of subduction wedges and forearc basins, ground-motion models and earthquake statistics for India, and seismic hazard studies for critical facilities. He also coordinates the IITGN-X education outreach programme.
+
+# PhD students
+
+- slug: saurabh-choubey
+  name: Saurabh Choubey
+  role: PhD student
+  group: current
+  since: 2021
+  topic: Mechanics of accretionary wedges and the smectite to illite reaction in subducting sediments
+  email: choubeysaurabh@iitgn.ac.in
+
+- slug: gulshan-kumar
+  name: Gulshan Kumar
+  role: PhD student
+  group: current
+  since: Jul 2022
+  topic: Computational mineral physics, the rutile to CaCl2-type transition in GeO2 as an analogue for SiO2, slab rheology
+  email: kumargulshan@iitgn.ac.in
+
+- slug: omkar
+  name: Omkar
+  role: PhD student
+  group: current
+  title_line: "Prime Minister's Research Fellow"
+  since: Jul 2023
+  topic: Stochastic finite-fault ground-motion simulation, earthquake declustering and ETAS models, non-stationary seismic hazard analysis
+  email: omkar.singh@iitgn.ac.in
+
+- slug: sumit-ghosh
+  name: Sumit Ghosh
+  role: PhD student
+  group: current
+  since: Jul 2023
+  topic: High-pressure behaviour of oxides and silicate minerals, mineral physics of the deep Earth and planetary interiors
+  email: sumit.ghosh@iitgn.ac.in
+
+- slug: deoyani-shelke
+  name: Deoyani Shelke
+  role: PhD student
+  group: current
+  since: 2023
+  topic: High-pressure phase stability of cobalt phosphide (Co2P) from density functional theory and diamond-anvil-cell experiments
+  email: deoyani.shelke@iitgn.ac.in
+
+- slug: parvee
+  name: Parvee
+  role: PhD student
+  group: current
+  since: 2023
+  topic: Evolution of the Andaman forearc basin from offshore well data and seismic interpretation
+  email: parvee.23310033@iitgn.ac.in
+
+- slug: virat-upadhyay
+  name: Virat Upadhyay
+  role: PhD student
+  group: current
+  title_line: NIDM Doctoral Fellow 2025-26
+  since: 2023
+  topic: Surface curvature as a proxy for seismic site amplification, probabilistic hazard combining geology and topography, coseismic landslides
+  email: virat.upadhyay@iitgn.ac.in
+  cosupervisor: Pankaj Kumar, National Institute of Disaster Management
+
+- slug: sumit-singh
+  name: Sumit Singh
+  role: PhD student
+  group: current
+  since: Jul 2024
+  topic: Phase-field fracture mechanics in geodynamic models, coupling ASPECT with FastScape, thermo-mechanical models of the Cambay rift
+  email: singh.sumit@iitgn.ac.in
+  cosupervisor: Harini Subramanian, IITGN
+
+- slug: jagroop-singh
+  name: Jagroop Singh
+  role: PhD student
+  group: current
+  title_line: MTech Earth System Science, IIT Gandhinagar, 2025
+  since: Jul 2025
+  topic: 3D geodynamic models of oblique subduction and back-arc rifting, slab segmentation beneath the Andaman-Sumatra margin
+  email: jagroop.singh@iitgn.ac.in
+
+# MTech students
+
+- slug: devanarayanan-em
+  name: Devanarayanan E M
+  role: MTech student
+  group: current
+  since: 2024
+  topic: MTech thesis in Earth System Science
+  email: devanarayanan.m@iitgn.ac.in
+
+- slug: deepak-choudhary
+  name: Deepak Choudhary
+  role: MTech student
+  group: current
+  since: Aug 2026
+  topic: Earthquake statistics and damage accumulation, thesis topic being settled
+  email: deepakchoudhary@iitgn.ac.in
+
+- slug: kalpesh-soni
+  name: Kalpesh Soni
+  role: MTech student
+  group: current
+  since: Aug 2026
+  topic: Design of earthquake early warning and seismic monitoring networks in India using earthquake statistics
+  email: kalpesh@iitgn.ac.in
+
+- slug: meghdatt-thakkar
+  name: Meghdatt Thakkar
+  role: MTech student
+  group: current
+  since: Aug 2026
+  topic: InSAR measurement of coseismic ground deformation
+  email: meghdatt@iitgn.ac.in
+
+# Visiting scholars
+
+- slug: vansangkimi
+  name: Vansangkimi
+  role: Visiting scholar
+  group: visiting
+  title_line: PhD scholar, Mizoram University (supervisor Saitluanga Sailo), at IITGN until Sep 2027
+  since: Jul 2026
+  topic: Geomorphology of the Indo-Burma Ranges, river profiles, knickpoints, drainage-divide migration and landslide susceptibility
+
+# Alumni
+
+- slug: shikha-sharma
+  name: Shikha Sharma
+  role: PhD student
+  group: alumni
+  since: 2021
+  until: 2026
+  degree: PhD, IIT Gandhinagar, 2026
+  topic: Regionally adaptable ground-motion prediction equations for the Himalaya and a strong-motion flat file for India
+  cosupervisor: Sanjay Singh Bora, Earth Sciences New Zealand
+
+- slug: anindita-jana
+  name: Anindita Jana
+  role: MTech student
+  group: alumni
+  since: 2024
+  until: 2026
+  degree: MTech Earth System Science, IIT Gandhinagar, 2026
+  topic: 3D thermomechanical models of seamount-driven stress transfer at the Nankai-Hyuga margin
+
+- slug: shravan-kumar
+  name: Shravan Kumar
+  role: Postdoctoral fellow
+  group: alumni
+  since: Jan 2024
+  until: 2025
+  topic: Marine geophysics, gravity inversion and thermo-mechanical models of rift inversion in the Cambay basin
+  now: ANRF National Postdoctoral Fellow, CSIR-North East Institute of Science and Technology, Jorhat
+
+- slug: lalramnunkimi
+  name: Lalramnunkimi
+  role: Visiting scholar
+  group: alumni
+  title_line: MSc Geophysics student, Pachhunga University College, Aizawl
+  since: Jan 2024
+  until: 2024
+  degree: MSc dissertation research at IITGN, 2024
+  topic: Seismic attenuation in North-East India, the kappa parameter from local earthquake records
+
+- slug: ramendra-sahoo
+  name: Ramendra Sahoo
+  role: Postdoctoral fellow
+  group: alumni
+  since: Mar 2022
+  until: 2023
+  topic: River-profile inversion, multifractal analysis of topography, carbonates and tectonics of the Andaman Islands
+
+# Interns, by year
+
+- slug: aayan-angkit-kashyap
+  name: Aayan Angkit Kashyap
+  role: Intern
+  group: alumni
+  title_line: SRIP intern, IISER Kolkata
+  since: 2026
+  until: 2026
+  topic: Probabilistic tsunami hazard assessment
+
+- slug: shivansh-gohil
+  name: Shivansh Gohil
+  role: Intern
+  group: alumni
+  title_line: SRIP intern, BTech Civil Engineering, IIT Gandhinagar
+  since: 2026
+  until: 2026
+  topic: Geological lineament detection from digital elevation models with convolutional neural networks
+
+- slug: prachi-gaurav
+  name: Prachi Gaurav
+  role: Intern
+  group: alumni
+  title_line: Research intern, BIT Mesra
+  since: 2026
+  until: 2026
+  topic: Deep-learning seismic phase picking with PhaseNet
+
+- slug: tejaswi-raj
+  name: Tejaswi Raj
+  role: Intern
+  group: alumni
+  title_line: Research intern, Bharati Vidyapeeth, Pune
+  since: 2026
+  until: 2026
+  topic: Extracting Raspberry Shake waveforms with ObsPy
+
+- slug: kovid-parmar
+  name: Kovid Parmar
+  role: Intern
+  group: alumni
+  title_line: SRIP intern, BTech Computer Science, IIT Gandhinagar
+  since: 2025
+  until: 2025
+  topic: Built the previous group website
+
+- slug: aniket-kumar
+  name: Aniket Kumar
+  role: Intern
+  group: alumni
+  title_line: SRIP intern
+  since: 2025
+  until: 2025
+  topic: Seismogenic depth in subduction zones with i2ELVIS
+
+- slug: kailash-dusad
+  name: Kailash Dusad
+  role: Intern
+  group: alumni
+  title_line: SRIP intern, IIT Gandhinagar
+  since: 2024
+  until: 2024
+  topic: A group web page on the MERN stack
+
+- slug: aprajita-sharma
+  name: Aprajita Sharma
+  role: Intern
+  group: alumni
+  title_line: SRIP intern
+  since: 2024
+  until: 2024
+  topic: A public web portal for probabilistic seismic hazard analysis
+
+- slug: kartik-sakkarwal
+  name: Kartik Sakkarwal
+  role: Intern
+  group: alumni
+  title_line: SRIP intern, IISER Kolkata
+  since: 2022
+  until: 2022
+  topic: Summer research internship
+
+- slug: amarjeet-kumar
+  name: Amarjeet Kumar
+  role: Intern
+  group: alumni
+  title_line: SRIP intern, IISER Kolkata
+  since: 2022
+  until: 2022
+  topic: Summer research internship
+
+- slug: sitaram-rathi
+  name: Sitaram Rathi
+  role: Intern
+  group: alumni
+  title_line: SRIP intern
+  since: 2022
+  until: 2022
+  topic: Summer research internship

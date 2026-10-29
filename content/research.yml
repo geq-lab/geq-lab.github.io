@@ -1,0 +1,32 @@
+- id: wedges
+  title: Subduction wedges and forearc basins
+  summary: |
+    Where an ocean plate dives under a continent, the sediment on it is scraped off and piles up into an accretionary wedge, with a forearc basin behind it. We model this with WedgeFlow, our own MATLAB and C code built on SiStER. It treats rock as viscous, elastic and plastic at once, so faults form on their own, and tens of millions of tracer particles carry rock type, stress and temperature through a run covering 150 km and a few million years. We ask how sedimentation changes the shape and growth of a wedge, what sets the thermal maturity of the accreted sediment (the thrusts, it turns out), and how clay minerals in the wedge react as they are buried and heated, since the smectite to illite transition changes the strength of the base the wedge slides on. Saurabh Choubey has an asymptotic thermo-kinematic solution for that reaction progress. Anindita Jana's MTech thesis used 3D models of seamount subduction on the Nankai margin. Earlier papers covered forearc basin stratigraphy and forearc high uplift on the Cyprus margin.
+  image: img/wedge_model_t135.png
+  image_alt: Cross-section of a WedgeFlow model of an accretionary wedge, with the faults the model formed on its own
+  image_credit: WedgeFlow model output, Geodynamics & Earthquake Lab
+  people: [saurabh-choubey, anindita-jana, utsav-mannu]
+
+- id: rifts
+  title: Rifts, plumes and the Indian margins
+  summary: |
+    The margins of India record rifting, plume volcanism and, in the Andaman Sea, oblique subduction, and we model all three. For the Cambay rift basin in Gujarat we run 2D thermo-mechanical models of rifting followed by inversion, to see which histories fit the structure we observe; Shravan Kumar began this work as a postdoc with us in 2024 and 2025, and Sumit Singh now carries the Cambay models. Sumit is also adding fracture mechanics to geodynamic models through a phase-field approach, and coupling ASPECT with FastScape, a surface-process code, so that erosion and deposition at the surface feed back on the tectonics. For the Kerguelen plume we run I2VIS with a plume under a moving plate, with mantle melting, melt extraction and a record of where and when the melt erupted. In the Andaman arc, Jagroop Singh runs 3D models of oblique subduction, slab segmentation and back-arc rifting and tests them against Bouguer gravity. Parvee works on the Andaman forearc basin from offshore well data and seismic sections, in particular the deepwater siliciclastics. Earlier work with Ramendra Sahoo and Pankaj Khanna covered the Holocene reefs and shallow marine carbonates of South Andaman.
+  people: [shravan-kumar, sumit-singh, jagroop-singh, parvee, utsav-mannu]
+
+- id: statseis
+  title: Statistical seismology and ground motion
+  summary: |
+    Earthquake catalogues and strong-motion records are the raw material here. Omkar works on stochastic finite-fault simulation of ground motion: how the stress parameter and the other source terms should be chosen, how SMSIM, EXSIM and GMSS2.0 compare on the same earthquakes, and how clustering in a catalogue should be handled, using ETAS models and a ranking of declustering methods, since the declustering choice feeds straight into the design ground motion. Shikha Sharma's PhD built ground-motion models (GMMs) for the Himalaya with Sanjay Bora, starting from an evaluation of the existing models and moving on to a way of adjusting them to Indian data. On the way she compiled a flat file of strong-motion intensity measures for crustal earthquakes in the Indian region, published in Seismica with open data. Lalramnunkimi measured the kappa attenuation parameter across North-East India, with the waveforms released as a dataset. Kalpesh Soni and Deepak Choudhary are starting MTech theses in this area. We work closely with Sanjay Bora (Earth Sciences New Zealand) and Shyam Nandan (IIT Kanpur).
+  people: [omkar, shikha-sharma, kalpesh-soni, deepak-choudhary, utsav-mannu]
+
+- id: hazard
+  title: Seismic hazard, site response and monitoring
+  summary: |
+    The hazard work takes the ground-motion science to particular sites. Virat Upadhyay is testing whether the curvature of the ground surface can stand in for the usual site-amplification proxies, using the NGA-West2 and NGA-Sub databases, and is building a probabilistic hazard framework that brings geology and topography in together, the subject of his NIDM Doctoral Fellowship. Kalpesh Soni is looking at how an earthquake clustering model can guide where to put the stations of an early-warning and monitoring network. We run Raspberry Shake seismometers for field vibration monitoring and a proton magnetometer for ground surveys. A good part of the group's applied work is sponsored site evaluation and ground-motion studies for critical facilities under the national siting codes: regional geology and seismotectonics, deterministic and probabilistic seismic hazard, and the design-basis ground motion for a site, with gravity, magnetic and GPS surveys in the field where they are needed.
+  people: [virat-upadhyay, kalpesh-soni, utsav-mannu]
+
+- id: deep
+  title: Deep Earth mineral physics and Earth observation
+  summary: |
+    Two smaller strands sit here. The first is computational mineral physics: density functional theory (DFT) calculations of how minerals behave at the pressures and temperatures of the deep Earth. Gulshan Kumar works on the rutile to CaCl2-type transition in GeO2, an analogue for SiO2, and what it means for the elasticity, rheology and seismic visibility of silica in subducting slabs. Deoyani Shelke studies the high-pressure phase stability of cobalt phosphide, Co2P, combining DFT with diamond anvil cell experiments at SPring-8 with Yoichi Nakajima's group at Kumamoto University. Sumit Ghosh works on the high-pressure behaviour of oxides and silicate minerals. These calculations run on PARAM Ananta, the supercomputer at IITGN. The second strand is Earth observation. Meghdatt Thakkar is starting on coseismic ground deformation measured with Sentinel-1 radar interferometry (InSAR). Vansangkimi, a visiting PhD scholar from Mizoram University, maps the geomorphology of the Indo-Burma Ranges from digital elevation models: chi and channel steepness analysis of rivers, knickpoints, drainage divide migration and landslide susceptibility.
+  people: [gulshan-kumar, deoyani-shelke, sumit-ghosh, meghdatt-thakkar, vansangkimi, utsav-mannu]

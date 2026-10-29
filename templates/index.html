@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="visually-hidden">{{ site.name }}</h1>
+<section class="intro">
+{{ site.home.intro | md }}
+</section>
+
+{% if home_news %}
+<section>
+  <h2>News</h2>
+  <ul class="news-list">
+    {% for n in home_news %}
+    <li><span class="date">{{ n.date_text }}</span> <a href="/news/#{{ n.id }}">{{ n.title }}</a></li>
+    {% endfor %}
+  </ul>
+  <p><a href="/news/">All news</a></p>
+</section>
+{% endif %}
+
+{% if home_pubs %}
+<section>
+  <h2>Recent papers</h2>
+  <ul class="pubs">
+    {% for p in home_pubs %}
+    <li>{{ p.cite_html }}</li>
+    {% endfor %}
+  </ul>
+  <p><a href="/publications/">All publications</a></p>
+</section>
+{% endif %}
+{% endblock %}

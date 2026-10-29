@@ -1,0 +1,53 @@
+name: Geodynamics & Earthquake Lab
+short_name: GEQ Lab
+institute: Indian Institute of Technology Gandhinagar
+department: Discipline of Earth Sciences
+url: https://geq-lab.github.io/
+description: "We build numerical models of subduction zones, rifts and plumes and study earthquake ground motion and seismic hazard, in the Discipline of Earth Sciences at IIT Gandhinagar."
+pi: utsav-mannu
+contact:
+  email: utsav.mannu@iitgn.ac.in
+  phone: "+91 79 2395 2589"
+  address:
+    - Academic Block 12, Room 406-B
+    - Indian Institute of Technology Gandhinagar
+    - Palaj, Gandhinagar, Gujarat 382355, India
+links:
+  - {label: IITGN faculty page, url: "https://iitgn.ac.in/faculty/earths/fac-utsav"}
+  - {label: Google Scholar, url: "https://scholar.google.com/citations?user=hcisl7UAAAAJ"}
+  - {label: ORCID, url: "https://orcid.org/0000-0003-2416-3958"}
+  - {label: GitHub, url: "https://github.com/geq-lab"}
+home:
+  intro: |
+    We are a research group in the Discipline of Earth Sciences at IIT Gandhinagar, led by Utsav Mannu. The group started in November 2021. It has PhD and MTech students, a visiting scholar and summer interns, and has had two postdocs.
+
+    Our work has two strands. On the geodynamics side we write and run numerical models of how the solid Earth deforms over millions of years: accretionary wedges and forearc basins at subduction zones, rifts and plumes on the Indian margins, and the minerals of the deep mantle. On the earthquake side we work with recorded ground motion and earthquake catalogues: ground-motion models for the Himalaya, stochastic simulation of shaking, earthquake clustering, site response and seismic hazard for critical facilities.
+
+    We sit in Academic Block 12 on the IITGN campus at Palaj, Gandhinagar, and run our models on the institute's PARAM Ananta supercomputer. If you want to work with us, the [Join us](/join/) page says how.
+  news_count: 5
+  pubs_count: 5
+contact_text: |
+  Utsav Mannu's office is Room 406-B in Academic Block 12 (AB 12) on the IIT Gandhinagar campus at Palaj, Gandhinagar. Email is the best way to reach us. The campus is on the Sabarmati, across the river from Gandhinagar and about 30 km from Ahmedabad; IITGN's [campus site](https://campus.iitgn.ac.in/) and [contact page](https://iitgn.ac.in/contact) have the institute's address and general numbers. If you are visiting, write ahead and we will meet you at AB 12.
+footer_note: "Earth Sciences, IIT Gandhinagar"
+page_intros:
+  research: |
+    Five themes, each with the people who work on it and the papers that came out of it. Most of what we do runs on code we write ourselves or on open geodynamic codes, with field data where we can get it.
+  people: |
+    The group now, and those who have passed through it. Institutional email addresses are listed where we have one on record.
+  publications: |
+    Journal papers, conference papers, theses and datasets from the group, newest first. Names in bold are group members, past and present. The open access mark means the publisher's version is free to read. Conference abstracts are in a collapsed list at the end of each year.
+  news: |
+    Papers out, defences, awards, talks, new instruments and the odd workshop, newest first.
+  teaching: |
+    Courses Utsav Mannu teaches in the Discipline of Earth Sciences at IITGN. The [IITGN course catalogue](https://iitgn.ac.in/academics/courses) has the official contents and credits; the links below go to the course outlines on the department site.
+  projects: |
+    Funded projects and fellowships held in the group. Industry-sponsored work is listed on one line without client names.
+facilities:
+  - name: Raspberry Shake seismometers
+    note: "with the group since February 2024, used for field vibration monitoring."
+  - name: Atoms proton precession magnetometer
+    note: "Model V5, acquired May 2026, for ground magnetic surveys and student training."
+  - name: PARAM Ananta
+    note: "IITGN's National Supercomputing Mission machine, where our geodynamic and DFT runs go."
+  - name: High Computational Lab, AB 12/206
+    note: "Computing room for the group's students, approved October 2026."

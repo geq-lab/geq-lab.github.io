@@ -1,0 +1,253 @@
+/* Geodynamics & Earthquake Lab, IIT Gandhinagar. The one stylesheet. */
+
+:root {
+  --text: #222;
+  --muted: #5b6770;
+  --heading: #1F3D47;
+  --link: #0d7a8c;        /* 5.0:1 on white; the brighter teal is kept as the accent */
+  --link-hover: #0a6273;
+  --accent: #14A4BC;
+  --rule: #dde3e6;
+  --tint: #e4f3f6;
+  --bg: #fff;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  overflow-wrap: break-word;
+}
+
+.wrap {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+main.wrap { padding-top: 1.5rem; padding-bottom: 3rem; }
+
+a { color: var(--link); text-decoration: none; }
+a:hover, a:focus { color: var(--link-hover); text-decoration: underline; }
+
+h1, h2, h3, h4 {
+  color: var(--heading);
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 1.6em 0 0.5em;
+}
+h1 { font-size: 1.9rem; margin-top: 0.4em; }
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.15rem; }
+h1 + p, h2 + p, h3 + p { margin-top: 0; }
+
+p, ul, ol, figure, details { margin: 0 0 1em; }
+ul, ol { padding-left: 1.4em; }
+li { margin-bottom: 0.25em; }
+
+img { max-width: 100%; height: auto; }
+
+figure { margin: 1em 0 1.2em; }
+figure img { display: block; width: 100%; border: 1px solid var(--rule); }
+figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 0.35em; }
+
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2em 0; }
+
+b, strong { font-weight: 600; }
+
+.small { font-size: 0.9rem; color: var(--muted); }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip {
+  position: absolute; left: -999px; top: 0.5rem; z-index: 10;
+  background: var(--bg); color: var(--heading); padding: 0.4rem 0.8rem;
+  border: 1px solid var(--rule);
+}
+.skip:focus { left: 1rem; }
+
+/* Header */
+
+.site-header { border-bottom: 1px solid var(--rule); }
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--heading);
+  text-decoration: none;
+  margin-right: auto;
+}
+.brand:hover, .brand:focus { color: var(--heading); text-decoration: none; }
+.brand img { height: 56px; width: 56px; display: block; }
+.brand-name { font-size: 1.25rem; font-weight: 600; line-height: 1.2; }
+
+.site-header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.1rem;
+}
+.site-header nav li { margin: 0; }
+.site-header nav a { color: var(--heading); padding: 0.2rem 0; display: inline-block; }
+.site-header nav a:hover, .site-header nav a:focus { color: var(--link-hover); text-decoration: none; }
+.site-header nav a[aria-current="page"] { color: var(--link); border-bottom: 2px solid var(--accent); }
+
+/* Footer */
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  padding: 1.25rem 0 2rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.site-footer p { margin: 0 0 0.4em; }
+.sep { color: var(--rule); }
+
+/* Home */
+
+.intro { font-size: 1.05rem; max-width: 44rem; }
+
+.news-list { list-style: none; padding: 0; }
+.news-list li { margin-bottom: 0.4em; }
+.news-list .date, .news-item .date {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+.news-list .date { display: inline-block; min-width: 7em; }
+
+/* Research */
+
+.toc { list-style: none; padding: 0; margin-bottom: 1.5em; }
+.toc li { display: inline; }
+.toc li + li::before { content: " · "; color: var(--muted); }
+.theme { border-top: 1px solid var(--rule); padding-top: 0.5em; }
+.theme .meta { color: var(--muted); font-size: 0.95rem; }
+
+/* People */
+
+.people-grid {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.5rem 0.6rem;
+  margin-bottom: 1.5em;
+}
+.person { margin: 0; }
+.person p { margin: 0 0 0.2em; }
+.person .name { font-weight: 600; color: var(--heading); margin-top: 0.5em; }
+.person .role { color: var(--muted); font-size: 0.9rem; }
+.person .topic { font-size: 0.95rem; }
+.person .links a, .profile .links a { display: block; }
+.person .bio p { margin: 0.4em 0; }
+.photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  background: var(--tint);
+}
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.75rem;
+  align-items: flex-start;
+  margin-bottom: 1.5em;
+}
+.profile .photo { flex: 0 0 160px; }
+.profile-text { flex: 1 1 20rem; min-width: 0; }
+.profile-text h3 { margin-top: 0.3em; font-size: 1.3rem; }
+.profile-text .role { color: var(--muted); margin-top: 0; }
+.alumni { list-style: none; padding: 0; }
+.alumni li { margin-bottom: 0.5em; }
+
+/* Publications */
+
+.pubs { list-style: none; padding: 0; }
+.pubs li { margin-bottom: 0.8em; padding-left: 1.2em; text-indent: -1.2em; }
+.pubs li > details, .pubs li > details > * { text-indent: 0; }
+.pubs.compact li { font-size: 0.95rem; margin-bottom: 0.5em; }
+.pubs b.us { font-weight: 600; }
+.pubs .oa {
+  font-size: 0.75rem;
+  color: var(--link);
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  padding: 0 0.3em;
+  white-space: nowrap;
+  vertical-align: 1px;
+}
+.pubs .note { display: block; text-indent: 0; color: var(--muted); font-size: 0.9rem; }
+.pubs a { overflow-wrap: anywhere; }
+.year h2 .count { font-size: 0.9rem; font-weight: 400; color: var(--muted); margin-left: 0.5em; }
+.years { color: var(--muted); }
+h3.cat { font-size: 0.95rem; color: var(--muted); font-weight: 600; text-transform: none; margin: 1em 0 0.4em; }
+details { margin: 0.3em 0 0.8em; }
+summary { cursor: pointer; color: var(--link); font-size: 0.9rem; }
+summary:hover { color: var(--link-hover); text-decoration: underline; }
+details p { margin: 0.4em 0 0.6em; font-size: 0.95rem; }
+details.abstracts { margin-top: 1em; }
+details.abstracts summary { font-size: 1rem; }
+details.abstracts .pubs { margin-top: 0.8em; }
+
+/* News */
+
+.news-item { margin-bottom: 1.6em; }
+.news-item h3 { margin: 0 0 0.3em; }
+.news-item .date { margin: 0; }
+.news-item figure { max-width: 36rem; }
+
+/* Teaching and projects */
+
+.courses, .projects { list-style: none; padding: 0; }
+.courses li { margin-bottom: 1.2em; }
+.courses h2 { font-size: 1.15rem; margin: 0 0 0.2em; }
+.projects li { margin-bottom: 0.8em; }
+
+/* Contact */
+
+address { font-style: normal; margin-bottom: 1em; }
+
+/* Narrow screens */
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.3rem; }
+  .brand-name { font-size: 1.05rem; }
+  .brand img { height: 44px; width: 44px; }
+  .news-list .date { display: block; min-width: 0; }
+}
+
+/* Print */
+
+@media print {
+  body { font-size: 11pt; color: #000; }
+  .site-header nav, .site-footer .footer-links, .toc, .years, .skip { display: none; }
+  a { color: #000; }
+  /* Print the collapsed lists (conference abstracts) expanded, without their toggles. */
+  details { display: block; }
+  details > summary { display: none; }
+  details::details-content { content-visibility: visible; display: block; }
+  .photo { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}

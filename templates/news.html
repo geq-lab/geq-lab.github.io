@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>News</h1>
+{{ intro }}
+{% if not news %}
+<p>Nothing here yet.</p>
+{% endif %}
+
+{% for year, items in news_by_year %}
+<section class="year" id="y{{ year }}">
+  <h2>{{ year }}</h2>
+  {% for n in items %}
+  <article class="news-item" id="{{ n.id }}">
+    <p class="date">{{ n.date_text }}</p>
+    <h3>{% if n.link %}<a href="{{ n.link }}">{{ n.title }}</a>{% else %}{{ n.title }}{% endif %}</h3>
+    {% if n.image %}
+    <figure>
+      <img src="/static/{{ n.image }}" alt="{{ n.title }}"{% if n.image_w %} width="{{ n.image_w }}" height="{{ n.image_h }}"{% endif %} loading="lazy">
+    </figure>
+    {% endif %}
+    {{ n.body }}
+    {% if n.people %}
+    <p class="small">{% for p in n.people %}<a href="/people/#{{ p.slug }}">{{ p.name }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
+    {% endif %}
+  </article>
+  {% endfor %}
+</section>
+{% endfor %}
+{% endblock %}

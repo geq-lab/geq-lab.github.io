@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Teaching</h1>
+{{ intro }}
+{% if not courses %}
+<p>Nothing here yet.</p>
+{% endif %}
+
+<ul class="courses">
+  {% for c in courses %}
+  <li>
+    <h2>{{ c.code }} {{ c.title }}</h2>
+    <p>{% if c.level %}{{ c.level }}. {% endif %}{% if c.offered %}Offered {{ c.offered | join(", ") }}. {% endif %}{% if c.link %}<a href="{{ c.link }}">Course plan</a>. {% endif %}{% if c.note %}{{ c.note }}{% endif %}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

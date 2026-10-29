@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ page_description }}">
+<link rel="canonical" href="{{ canonical }}">
+<link rel="icon" type="image/png" sizes="64x64" href="/static/favicon.png">
+<link rel="apple-touch-icon" href="/static/logo-240.png">
+<link rel="stylesheet" href="/static/style.css">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ page_description }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:image" content="{{ site.url }}static/logo.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/">
+      <img src="/static/logo-240.png" alt="" width="56" height="56">
+      <span class="brand-name">{{ site.name }}</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        {% for id, label in pages %}
+        <li><a href="/{{ id }}/"{% if page_id == id %} aria-current="page"{% endif %}>{{ label }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="main">
+{% block content %}{% endblock %}
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>{% if site.footer_note %}{{ site.footer_note }}{% else %}{{ site.department }}, {{ site.institute }}{% endif %}</p>
+    {% if site.links %}
+    <p class="footer-links">
+      {% for l in site.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% if not loop.last %} <span class="sep">·</span> {% endif %}{% endfor %}
+    </p>
+    {% endif %}
+    <p class="small">Last updated {{ built }}.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Publications</h1>
+{{ intro }}
+<p class="small">{{ n_pubs }} publication{{ "s" if n_pubs != 1 }}{% if n_abstracts %} and {{ n_abstracts }} conference abstract{{ "s" if n_abstracts != 1 }}{% endif %}. Group members in bold.</p>
+{% if pubs_by_year|length > 1 %}
+<p class="years">
+  {% for y in pubs_by_year %}<a href="#y{{ y.year }}">{{ y.year }}</a>{% if not loop.last %} <span class="sep">·</span> {% endif %}{% endfor %}
+</p>
+{% endif %}
+
+{% for y in pubs_by_year %}
+<section class="year" id="y{{ y.year }}">
+  <h2>{{ y.year }} <span class="count">{% if y.count %}{{ y.count }} publication{{ "s" if y.count != 1 }}{% endif %}{% if y.abstracts %}{% if y.count %}, {% endif %}{{ y.abstracts|length }} abstract{{ "s" if y.abstracts|length != 1 }}{% endif %}</span></h2>
+  {% for label, cat, items in y.groups %}
+  {% if y.groups|length > 1 %}<h3 class="cat">{{ label }}</h3>{% endif %}
+  <ul class="pubs">
+    {% for p in items %}
+    <li id="{{ p.key }}">
+      {{ p.cite_html }}
+      {% if p.abstract %}
+      <details><summary>Abstract</summary><p>{{ p.abstract }}</p></details>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+  {% if y.abstracts %}
+  <details class="abstracts">
+    <summary>Conference abstracts ({{ y.abstracts|length }})</summary>
+    <ul class="pubs">
+      {% for p in y.abstracts %}
+      <li id="{{ p.key }}">{{ p.cite_html }}</li>
+      {% endfor %}
+    </ul>
+  </details>
+  {% endif %}
+</section>
+{% endfor %}
+{% endblock %}
