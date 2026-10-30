@@ -21,7 +21,7 @@ Open `content/people.yml`. It is a list; each person is a block that starts with
 - slug: priya-nair                 # lower-case, hyphens, no spaces; this names your photo file
   name: Priya Nair
   role: PhD student                # exactly one of: Principal Investigator, Postdoctoral fellow,
-                                   # Research staff, PhD student, MTech student, Visiting scholar, Intern
+                                   # Research staff, PhD student, MTech student, BS-MS student, Visiting scholar, Intern
   group: current                   # current, visiting or alumni
   since: Jul 2026                  # a year, or "Jul 2026"
   topic: Ground-motion models for the Himalaya
@@ -33,6 +33,8 @@ Open `content/people.yml`. It is a list; each person is a block that starts with
 Put URLs inside quotes, as above; if YAML refuses a value with a `?` or a `:` in it, quotes are the fix.
 
 Then add a photo. Go to the `content/photos/` folder on github.com, click "Add file" then "Upload files", and upload a picture named after your slug, in lower case and exactly as the slug is spelt: `priya-nair.jpg` (or `.png`; `Priya-Nair.JPG` is skipped with only a warning in the build log). Any size and shape is fine, but at least 500 px on the short side looks sharp; the build turns it into a square at 480 px, cropping to the centre, so a head-and-shoulders picture with some room around the head works best. Until a photo arrives the page shows your initials in a circle.
+
+You also have a page of your own at `/people/your-slug/`, and its text is an `about:` field in your block: write `about: |` on its own line and, indented by four spaces under it, 100 to 250 words in plain prose on what you are doing (the question, the methods, the data, where it stands), to be changed as often as you like; your papers, news items and awards appear on that page by themselves.
 
 When you leave, change `group: current` to `group: alumni`, add `until: 2029` and, if you like, `degree: PhD Earth Sciences, IITGN, 2029` and `now: Postdoc, University of X` (only if you want that public). The alumni list is sorted by `until`.
 

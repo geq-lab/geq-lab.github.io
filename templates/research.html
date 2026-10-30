@@ -33,7 +33,7 @@
   </ul>
   {% endif %}
   {% if t.people %}
-  <p class="meta">People: {% for p in t.people %}<a href="/people/#{{ p.slug }}">{{ p.name }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
+  <p class="meta">People: {% for p in t.people %}{% if p.url %}<a href="{{ p.url }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</p>
   {% endif %}
   {% set papers = t.papers | rejectattr("category", "equalto", "abstract") | list %}
   {% if papers %}

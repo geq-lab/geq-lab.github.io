@@ -86,7 +86,7 @@ A list. Order within a group is the display order (the build also sorts current 
 - slug: utsav-mannu            # lowercase, hyphenated; photo file is content/photos/<slug>.jpg or .png
   name: Utsav Mannu
   role: Principal Investigator # exactly one of: Principal Investigator, Postdoctoral fellow, Research staff,
-                               # PhD student, MTech student, Visiting scholar, Intern
+                               # PhD student, MTech student, BS-MS student (IISER Pune thesis students), Visiting scholar, Intern
   group: current               # current | visiting | alumni
   title_line: Assistant Professor, Earth Sciences, IIT Gandhinagar   # optional, one line
   since: 2021                  # year, or "Jul 2023"
@@ -97,8 +97,14 @@ A list. Order within a group is the display order (the build also sorts current 
   email: name@iitgn.ac.in      # optional, institutional addresses only
   cosupervisor: Harini Subramanian, IITGN   # optional
   links: {scholar: "URL", orcid: "URL", github: "URL", website: "URL", linkedin: "URL"}   # optional; quote the URLs
-  bio: |                       # optional Markdown paragraph (PI, postdocs)
+  bio: |                       # optional Markdown paragraph (PI, postdocs), shown on the People page card
+  about: |                     # Markdown, 100 to 250 words, shown on the member's own page: for current members what they are doing
+                               # (question, methods, data, where it stands), for alumni what they did in the group and, if public, what they do now
+  affiliation_then: IISER Pune # optional, alumni only: members of the PI's INSPIRE Faculty group at IISER Pune (2018 to 2021) who were never at IITGN;
+                               # shown as ", at IISER Pune" after the dates. A current member who began there says so in title_line (the build warns otherwise).
 ```
+
+Every person gets a page at `/people/<slug>/` (built from `templates/person.html`): photo or placeholder, name, role and title line, dates, topic, `bio` (if any) and then `about`, co-supervisor, email and links, then "Papers" (entries of publications.bib whose author list contains the person: surname plus first initial, exact for mononyms; when two members share surname and initial the full given name decides, and an author written with only the initial matches neither), "News" (news items whose `people` list has the slug) and "Awards" (awards.yml entries whose `who` has the slug), each section only if non-empty. The People page cards and every people link elsewhere point to these pages. Past interns get a page only if they have an `about`. A photo in `content/photos/` is published for everyone who has a page, alumni included. Page title `Name | Geodynamics & Earthquake Lab`; the meta description names the role and the lab (or, with `affiliation_then`, the PI's group at that place) and adds the topic line while the whole stays within about 160 characters.
 
 Sections on the People page: Faculty; Postdoctoral fellows and research staff; PhD students; MTech students; Visiting scholars; Alumni (by `until` descending; interns listed as one compact line per year). A member without a photo gets a placeholder with initials; the build never fails for a missing photo.
 

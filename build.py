@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Build the Geodynamics & Earthquake Lab website.
 
-Reads content/ and static/, renders templates/ and writes _site/.
+Reads content/ and static/, renders templates/ and writes _site/, including
+one page per person at /people/<slug>/ (templates/person.html).
 SCHEMA.md describes the data files; HOWTO.md covers everyday edits.
 
     python build.py
@@ -34,8 +35,12 @@ from PIL import Image, ImageOps
 HERE = Path(__file__).resolve().parent
 
 ROLES = ["Principal Investigator", "Postdoctoral fellow", "Research staff",
-         "PhD student", "MTech student", "Visiting scholar", "Intern"]
+         "PhD student", "MTech student", "BS-MS student", "Visiting scholar", "Intern"]
 ROLE_RANK = {r: i for i, r in enumerate(ROLES)}
+# The role inside a sentence ("Omkar, PhD student in the ..."), for the person pages' meta description.
+ROLE_PHRASE = {"Principal Investigator": "principal investigator", "Postdoctoral fellow": "postdoctoral fellow",
+               "Research staff": "research staff", "PhD student": "PhD student",
+               "MTech student": "MTech student", "BS-MS student": "BS-MS student", "Visiting scholar": "visiting scholar", "Intern": "intern"}
 GROUPS = ["current", "visiting", "alumni"]
 LINK_KEYS = ["scholar", "orcid", "github", "website", "linkedin"]
 LINK_LABELS = {"scholar": "Google Scholar", "orcid": "ORCID", "github": "GitHub",
@@ -71,6 +76,12 @@ CATEGORY_LABEL = {
     "conference": "Conference papers", "thesis": "Theses",
     "dataset": "Datasets", "preprint": "Preprints", "other": "Other",
     "abstract": "Conference abstracts"}
+
+# Short form of the institute for the person pages' meta description
+# ("Omkar, PhD student in the Geodynamics & Earthquake Lab, IIT Gandhinagar.").
+INSTITUTE_SHORT = "IIT Gandhinagar"
+# Longest meta description written for a person page; search results cut at about 160 characters.
+DESCRIPTION_MAX = 160
 
 # The nine pages in the navigation, in order. The home page is the logo link.
 PAGES = [
@@ -282,6 +293,20 @@ def load_people(content):
         email = str(rec.get("email") or "").strip()
         if email and re.search(r"@(gmail|yahoo|hotmail|outlook|rediffmail)\.", email, re.I):
             warn(f"{where}: '{email}' is not an institutional address; SCHEMA.md allows only those")
+        # `about` is the Markdown text of the person's own page. It lives inside the
+        # person's own entry, so an about without a matching slug cannot happen; what
+        # can happen is a wrongly indented block that YAML reads as a mapping or a list.
+        about = rec.get("about")
+        if about is not None and not isinstance(about, str):
+            raise BuildError(f"{where}: 'about' must be a block of text (write it as 'about: |' and indent "
+                             f"the lines under it), but YAML read it as {type(about).__name__}")
+        about = (about or "").strip()
+        n_words = len(about.split())
+        if about and n_words > 300:
+            warn(f"{where}: 'about' has {n_words} words; SCHEMA.md suggests 100 to 250")
+        # Every current and visiting member and every past member other than an intern
+        # gets a page at /people/<slug>/; a past intern gets one only with an `about`.
+        has_page = bool(about) or group != "alumni" or role != "Intern"
         person = {
             "slug": slug,
             "name": str(need(rec, "name", where)).strip(),
@@ -297,13 +322,23 @@ def load_people(content):
             "cosupervisor": str(rec.get("cosupervisor") or "").strip(),
             "links": [(k, LINK_LABELS[k], str(links[k])) for k in LINK_KEYS if links.get(k)],
             "bio": md(rec.get("bio") or ""),
+            "about": md(about),
+            "affiliation_then": str(rec.get("affiliation_then") or "").strip(),
+            "url": f"/people/{slug}/" if has_page else "",   # "" : no page, show the name as plain text
             "order": i,
             "photo": "",          # filled in by process_photos
             "initials": "",
+            "papers": [],         # filled in by attach_person_items
+            "abstracts": [],
+            "news": [],
+            "awards": [],
         }
         person["initials"] = initials(person["name"])
         if group == "alumni" and not person["until"]:
             warn(f"{where}: alumni entry without 'until'")
+        if person["affiliation_then"] and group != "alumni":
+            warn(f"{where}: 'affiliation_then' is for alumni only (SCHEMA.md) and is not shown for a "
+                 f"current member; say where they started in 'title_line' instead")
         people.append(person)
     if not people:
         raise BuildError(f"{path}: no entries")
@@ -351,6 +386,20 @@ def person_sections(people):
         ("Visiting scholars", "grid", visiting),
     ]
     return [s for s in sections if s[2]], alumni, interns_by_year
+
+
+def attach_person_items(people, pubs, news, awards):
+    """Fill each person's papers, abstracts, news and awards for their own page.
+    Papers come from the author matching done in load_publications (surname plus
+    first initial, exact for a mononym), news from the `people` lists and awards
+    from `who`. Each list keeps the newest-first order of its source."""
+    for p in people:
+        slug = p["slug"]
+        mine = [pub for pub in pubs if slug in pub["people"]]
+        p["papers"] = [pub for pub in mine if pub["category"] != "abstract"]
+        p["abstracts"] = [pub for pub in mine if pub["category"] == "abstract"]
+        p["news"] = [n for n in news if any(q["slug"] == slug for q in n["people"])]
+        p["awards"] = [a for a in awards if any(w["slug"] == slug for w in a["who"])]
 
 
 def check_slugs(slugs, people_by_slug, where):
@@ -554,11 +603,12 @@ def load_awards(content, people_by_slug):
         for w in as_list(rec.get("who"), where, "who"):
             w = str(w).strip()
             if w in people_by_slug:
-                who.append({"name": people_by_slug[w]["name"], "slug": w})
+                who.append({"name": people_by_slug[w]["name"], "slug": w,
+                            "url": people_by_slug[w]["url"]})
             elif SLUG_RE.match(w):
                 raise BuildError(f"{where}: who '{w}' looks like a slug but is not in people.yml")
             else:
-                who.append({"name": w, "slug": ""})   # someone outside the group, shown as text
+                who.append({"name": w, "slug": "", "url": ""})   # someone outside the group, shown as text
         if not who:
             raise BuildError(f"{where}: 'who' must name at least one person")
         link = str(rec.get("link") or "").strip()
@@ -692,15 +742,28 @@ class NameMatcher:
 
     def __init__(self, people):
         self.keys = {}
+        # (surname, initial) shared by two members (Aniket Kumar, Amarjeet Kumar) -> {normalised given name: slug}.
+        # Such an author is matched on the full given name; one written with only the initial matches nobody.
+        self.shared = {}
+        self.warned = set()
+        names = {p["slug"]: p["name"] for p in people}
         for p in people:
             words = [w for w in re.split(r"\s+", p["name"]) if w]
             if len(words) == 1:
                 self.keys[(norm_name(words[0]), "")] = p["slug"]
                 continue
+            given = norm_name(words[0])
             for k in range(1, len(words)):
-                surname = norm_name("".join(words[k:]))
-                initial = norm_name(words[0])[:1]
-                self.keys.setdefault((surname, initial), p["slug"])
+                key = (norm_name("".join(words[k:])), given[:1])
+                other = self.keys.get(key)
+                if other is None:
+                    self.keys[key] = p["slug"]
+                elif other != p["slug"]:
+                    if key not in self.shared:
+                        warn(f"people.yml: '{names[other]}' and '{p['name']}' share the surname and first initial; "
+                             f"a BibTeX author written with only the initial will be matched to neither")
+                        self.shared[key] = {norm_name(names[other].split()[0]): other}
+                    self.shared[key][given] = p["slug"]
 
     def match(self, author):
         """author: NameParts from bibtexparser. Returns a slug or None."""
@@ -709,10 +772,20 @@ class NameMatcher:
         if not first:
             return self.keys.get((last, ""))
         initial = norm_name(first)[:1]
-        slug = self.keys.get((last, initial))
-        if slug is None and author.von:
-            slug = self.keys.get((norm_name("".join(author.von) + "".join(author.last)), initial))
-        return slug
+        key = (last, initial)
+        if key not in self.keys and author.von:
+            key = (norm_name("".join(author.von) + "".join(author.last)), initial)
+        if key in self.shared:
+            given = norm_name(first.split()[0])
+            if len(given) > 1:
+                return self.shared[key].get(given)
+            label = f"{first} {' '.join(author.last)}"
+            if label not in self.warned:
+                self.warned.add(label)
+                warn(f"publications.bib: author '{label}' could be any of "
+                     f"{', '.join(sorted(self.shared[key].values()))}; write the full given name to match")
+            return None
+        return self.keys.get(key)
 
 
 def clean_text(value):
@@ -1058,8 +1131,8 @@ def process_photos(content, out, people):
             found.setdefault(slug, path)   # .jpg wins over .png by sort order
     n = 0
     for slug, path in found.items():
-        if by_slug[slug]["group"] == "alumni":
-            continue   # alumni are a plain list, so their photos are not published
+        if not by_slug[slug]["url"]:
+            continue   # a past intern without a page: nothing shows the photo
         try:
             with Image.open(path) as im:
                 im = ImageOps.exif_transpose(im)
@@ -1160,11 +1233,13 @@ def placeholder_svg(person):
         f'font-size="{size}" font-weight="600" fill="#0d7a8c">{text}</text></svg>')
 
 
-def photo_html(person, size=160):
+def photo_html(person, size=160, lazy=True):
+    """The photo or the placeholder; lazy=False for the one photo at the top of a person page."""
     if person["photo"]:
+        loading = ' loading="lazy"' if lazy else ""
         return Markup(
             f'<img class="photo" src="{escape(person["photo"])}" alt="{escape(person["name"])}" '
-            f'width="{size}" height="{size}" loading="lazy">')
+            f'width="{size}" height="{size}"{loading}>')
     return placeholder_svg(person)
 
 
@@ -1245,6 +1320,39 @@ def render_pages(env, out, site, data):
     page("contact.html", "/contact/", f"Contact | {name}",
          "How to reach the " + name + ".")
 
+    # One page per person at /people/<slug>/ (see SCHEMA.md, content/people.yml).
+    pi_name = data["pi"]["name"]
+    for p in data["people"]:
+        if not p["url"]:
+            continue
+        role = ROLE_PHRASE[p["role"]]
+        if p["group"] == "alumni":
+            role = "past " + role
+        if p["affiliation_then"]:
+            # from the PI's earlier group, never at IITGN: the head must not say otherwise
+            description = f"{p['name']}, {role} with {pi_name}'s group at {p['affiliation_then']}."
+        else:
+            description = f"{p['name']}, {role} in the {name}, {INSTITUTE_SHORT}."
+        page("person.html", p["url"], f"{p['name']} | {name}",
+             with_topic(description, p["topic"]), page_id="people", person=p)
+
+
+def with_topic(description, topic):
+    """Append a member's topic line to the meta description while the whole stays within
+    DESCRIPTION_MAX characters (search results cut at about 160); else the topic's first
+    clause, if it is a real phrase; else the description alone."""
+    topic = topic.strip().rstrip(".")
+    if not topic:
+        return description
+    full = f"{description} {topic}."
+    if len(full) <= DESCRIPTION_MAX:
+        return full
+    first = topic.split(",", 1)[0].strip()
+    short = f"{description} {first}."
+    if len(first.split()) >= 4 and len(short) <= DESCRIPTION_MAX:
+        return short
+    return description
+
 
 def check_internal_links(out, site, themes, news, awards):
     """After rendering: every site-relative figure, news or award link must point
@@ -1314,19 +1422,23 @@ def build(content, static, templates, out):
     awards = load_awards(content, people_by_slug)
     pubs = load_publications(content, NameMatcher(people), themes_by_id)
 
-    # Output folder: start clean.
+    # Output folder: start clean. The .nojekyll marker goes in first, so that a
+    # build which stops half way still leaves a folder the next run may replace.
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
+    (out / ".nojekyll").write_text("", encoding="utf-8")
 
     n_photos = process_photos(content, out, people)
     process_logo(static, out)
     n_static = copy_static(static, out)
 
     sections, alumni, interns_by_year = person_sections(people)
+    attach_person_items(people, pubs, news, awards)
     home_pubs = [p for p in pubs if p["category"] in ("journal", "chapter")]
     data = {
         "pi": people_by_slug[site["pi"]],
+        "people": people,
         "sections": sections,
         "alumni": alumni,
         "interns_by_year": interns_by_year,
@@ -1351,9 +1463,9 @@ def build(content, static, templates, out):
     env = make_env(templates)
     render_pages(env, out, site, data)
     check_internal_links(out, site, themes, news, awards)
-    (out / ".nojekyll").write_text("", encoding="utf-8")
 
-    print(f"built {out}: {len(people)} people ({n_photos} photos), {len(themes)} themes, "
+    n_pages = sum(1 for p in people if p["url"])
+    print(f"built {out}: {len(people)} people ({n_pages} pages, {n_photos} photos), {len(themes)} themes, "
           f"{len(pubs)} publications, {len(news)} news items, {len(awards)} awards, "
           f"{len(courses)} courses, {len(ongoing) + len(completed)} projects, {n_static} static files")
 

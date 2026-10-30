@@ -23,7 +23,7 @@
     {% endif %}
     {{ n.body }}
     {% if n.people %}
-    <p class="small">{% for p in n.people %}<a href="/people/#{{ p.slug }}">{{ p.name }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
+    <p class="small">{% for p in n.people %}{% if p.url %}<a href="{{ p.url }}">{{ p.name }}</a>{% else %}{{ p.name }}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</p>
     {% endif %}
   </article>
   {% endfor %}

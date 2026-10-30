@@ -38,7 +38,7 @@
   <h2>Awards</h2>
   <ul class="awards-list">
     {% for a in home_awards %}
-    <li><span class="date">{{ a.date_text }}</span> <b>{% if a.link %}<a href="{{ a.link }}">{{ a.title }}</a>{% else %}{{ a.title }}{% endif %}</b>, {{ a.giver }}, to {% for w in a.who %}{% if w.slug %}<a href="/people/#{{ w.slug }}">{{ w.name }}</a>{% else %}{{ w.name }}{% endif %}{% if not loop.last %}{% if loop.revindex == 2 %} and {% else %}, {% endif %}{% endif %}{% endfor %}.</li>
+    <li><span class="date">{{ a.date_text }}</span> <b>{% if a.link %}<a href="{{ a.link }}">{{ a.title }}</a>{% else %}{{ a.title }}{% endif %}</b>, {{ a.giver }}, to {% for w in a.who %}{% if w.url %}<a href="{{ w.url }}">{{ w.name }}</a>{% else %}{{ w.name }}{% endif %}{% if not loop.last %}{% if loop.revindex == 2 %} and {% else %}, {% endif %}{% endif %}{% endfor %}.</li>
     {% endfor %}
   </ul>
   <p><a href="/awards/">All awards</a></p>

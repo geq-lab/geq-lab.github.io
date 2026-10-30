@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+{% set p = person %}
+<p class="crumb"><a href="/people/">People</a></p>
+<article class="person-page">
+  <header class="person-head">
+    {{ p | photo(200, false) }}
+    <div class="person-meta">
+      <h1>{{ p.name }}</h1>
+      <p class="role">{{ p.role }}{% if p.group == "alumni" %}{% if p.since and p.until and p.since == p.until %}, {{ p.until }}{% elif p.since and p.until %}, {{ p.since }} to {{ p.until }}{% elif p.until %}, until {{ p.until }}{% elif p.since %}, from {{ p.since }}{% endif %}{% elif p.since %}, since {{ p.since }}{% endif %}{% if p.affiliation_then and p.group == "alumni" %}, at {{ p.affiliation_then }}{% endif %}</p>
+      {% if p.title_line %}<p class="role">{{ p.title_line }}</p>{% endif %}
+      {% if p.degree %}<p class="role">{{ p.degree }}</p>{% endif %}
+      {% if p.now %}<p class="role">Now {{ p.now }}</p>{% endif %}
+      {% if p.topic %}<p class="topic">{{ p.topic }}</p>{% endif %}
+    </div>
+  </header>
+
+  {# `bio` is the People-page card text (the PI); `about` is written for this page. Both show when both exist, bio first. #}
+  {% if p.bio or p.about %}
+  <section class="person-about">
+    {{ p.bio }}
+    {{ p.about }}
+  </section>
+  {% endif %}
+  {% if p.cosupervisor or p.email or p.links %}
+  <section class="person-contact">
+    {% if p.cosupervisor %}<p class="small">Co-supervisor: {{ p.cosupervisor }}</p>{% endif %}
+    {% if p.email or p.links %}
+    <p class="small links">
+      {% if p.email %}<a href="mailto:{{ p.email }}">{{ p.email | email_wbr }}</a>{% endif %}
+      {% for key, label, url in p.links %}<a href="{{ url }}">{{ label }}</a>{% endfor %}
+    </p>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  {% if p.papers or p.abstracts %}
+  <section id="papers">
+    <h2>Papers</h2>
+    {% if p.papers %}
+    <ul class="pubs">
+      {% for pub in p.papers %}
+      <li>{{ pub.cite_html }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% if p.abstracts %}
+    <details class="abstracts">
+      <summary>Conference abstracts ({{ p.abstracts|length }})</summary>
+      <ul class="pubs">
+        {% for pub in p.abstracts %}
+        <li>{{ pub.cite_html }}</li>
+        {% endfor %}
+      </ul>
+    </details>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  {% if p.news %}
+  <section id="news">
+    <h2>News</h2>
+    <ul class="news-list">
+      {% for n in p.news %}
+      <li><span class="date">{{ n.date_text }}</span> <a href="/news/#{{ n.id }}">{{ n.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if p.awards %}
+  <section id="awards">
+    <h2>Awards</h2>
+    <ul class="awards-list">
+      {% for a in p.awards %}
+      <li><span class="date">{{ a.date_text }}</span> <b>{% if a.link %}<a href="{{ a.link }}">{{ a.title }}</a>{% else %}{{ a.title }}{% endif %}</b>, {{ a.giver }}.{% if a.for %} {{ a.for }}.{% endif %}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+</article>
+{% endblock %}

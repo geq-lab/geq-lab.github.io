@@ -224,6 +224,29 @@ b, strong { font-weight: 600; }
 .profile-text .role { color: var(--muted); margin-top: 0; }
 .alumni { list-style: none; padding: 0; }
 .alumni li { margin-bottom: 0.5em; }
+.photo-link { display: block; width: 160px; }
+.photo-link:hover, .photo-link:focus { text-decoration: none; }
+
+/* A member's own page: photo at 200 px on the left, text beside it; on a phone
+   the text wraps below the photo. One column, no cards. */
+
+.crumb { font-size: 0.9rem; color: var(--muted); margin: 0 0 1em; }
+.person-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  align-items: flex-start;
+  margin-bottom: 1.5em;
+}
+.person-head .photo { width: 200px; height: 200px; flex: 0 0 200px; }
+.person-meta { flex: 1 1 20rem; min-width: 0; }
+.person-meta h1 { margin-top: 0.1em; }
+.person-meta p { margin: 0 0 0.3em; }
+.person-meta .role { color: var(--muted); }
+.person-meta .topic { margin-top: 0.6em; }
+.person-about { max-width: 44rem; }
+.person-contact .links a { margin-right: 1em; }
+.person-page section { margin-bottom: 1.5em; }
 
 /* Publications */
 

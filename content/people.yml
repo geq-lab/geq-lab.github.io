@@ -2,7 +2,8 @@
 # Current members first (the build sorts them by role, then by since), then alumni (by until, newest first), then interns.
 # Only institutional email addresses, and only where one is on record. No phone numbers, nothing personal.
 # Dates and topics were checked against the PI's mailbox (DSC forms, proposal reports, appointment letters)
-# on 29 Oct 2026; see review/APPLIED_29Oct_evening.md for the sources.
+# on 29 Oct 2026; see review/APPLIED_29Oct_evening.md for the sources. The `about` texts and the IISER Pune
+# alumni were added on 30 Oct 2026 (same file, sections "Person pages, 30 Oct" and "Person pages, review fixes").
 
 # Faculty
 
@@ -21,6 +22,9 @@
     github: "https://github.com/geq-lab"
   bio: |
     Utsav Mannu is an Assistant Professor of Earth Sciences at IIT Gandhinagar, where he has been since November 2021, with a joint appointment in Maritime Engineering. He did an integrated BS-MS in Earth Science at IISER Kolkata (2007 to 2012), worked briefly at the National Geophysical Research Institute, and then did a PhD at ETH Zurich (2013 to 2016) on multi-scale numerical models of accretionary wedges and forearc basins. He stayed at ETH Zurich as a postdoc through 2017 and was a DST INSPIRE Faculty fellow at IISER Pune from 2018 to 2021, with a stay in 2019 at the Earthquake Research Institute, University of Tokyo, working on the Nankai accretionary wedge. His group works on thermomechanical models of subduction wedges and rifts, ground-motion models and earthquake statistics for India, high-pressure mineral physics, and seismic hazard studies for critical facilities. He coordinates the IITGN-X education outreach programme, started the department's Earth Science Lecture Series in 2024, and received the IISER Kolkata Alumni Award in 2025.
+  # The person page shows the bio above the about, so the about carries only what the bio does not.
+  about: |
+    His own research is numerical modelling of how the lithosphere deforms, from the thermal maturity of accreted sediments to rifting on the Indian margins. At the National Geophysical Research Institute he worked on focal-mechanism inversion in the Kumaon Himalaya, and his postdoc year at ETH Zurich was on back-arc extension and seamount subduction. The group also works on ground-motion models and earthquake statistics for India, high-pressure mineral physics and seismic hazard for critical facilities. He teaches Physics of the Lithosphere, Near Surface Geophysics, Engineering Seismology and Seismic Hazard Analysis, Statistical Seismology, Computational Tools for Earth System Modeling and Statistics for Earth Sciences, and mentors a Prime Minister's Research Fellow and an NIDM Doctoral Fellow.
 
 # PhD students
 
@@ -28,44 +32,76 @@
   name: Saurabh Choubey
   role: PhD student
   group: current
-  since: Dec 2021
+  title_line: PhD student with the group at IISER Pune from August 2020, at IIT Gandhinagar since December 2021
+  since: Aug 2020
   topic: How the smectite to illite reaction in subducting sediments changes the mechanics of accretionary wedges
   email: choubeysaurabh@iitgn.ac.in
+  about: |
+    Saurabh Choubey asks where in a subduction wedge the clay reaction runs and what it does to the strength of the wedge. He has a BSc in Physics from Banaras Hindu University and an MSc Tech in Applied Geophysics from IIT (ISM) Dhanbad. He began his PhD with Utsav Mannu at IISER Pune in August 2020 and moved with him to IIT Gandhinagar in December 2021. He defended his PhD proposal, "Investigation of Smectite-Illite phase transition and fluid flow in accretionary wedges", on 20 December 2022.
+
+    As smectite turns to illite in the subducting sediments it releases water and changes the strength of the décollement the wedge slides on. He is working on an analytical description of where in a wedge the reaction runs and how fast, to be compared with runs of WedgeFlow, the group's wedge code, set up for the Nankai margin. He is a co-author of the group's EGU 2025 abstract on geodynamic models of accretionary wedges with the smectite to illite transformation. A paper on this, with Shyam Nandan of IIT Kanpur, is in preparation, and the thesis is being written up.
 
 - slug: gulshan-kumar
   name: Gulshan Kumar
   role: PhD student
   group: current
+  title_line: PhD student at IITGN from July 2022, first with Rajkrishna Dutta, in the group from 2025
   since: Jul 2022
   topic: Density functional theory of mantle minerals, at present the rutile to CaCl2-type transition in GeO2
   email: kumargulshan@iitgn.ac.in
   links:
     website: "https://gk16159.github.io/"
+    orcid: "https://orcid.org/0009-0004-8736-062X"
+    scholar: "https://scholar.google.com/citations?user=tNZsO5kAAAAJ"
+    linkedin: "https://www.linkedin.com/in/gulshan-kumar-4840b1128/"
+  about: |
+    Gulshan Kumar does first-principles calculations of minerals at the pressures and temperatures of the deep Earth. He has a BS-MS in Physics from IISER Kolkata and joined IIT Gandhinagar as a PhD student in July 2022, at first under Rajkrishna Dutta. Utsav Mannu became his supervisor after Dutta left the institute in 2025. His proposal, "High-pressure studies of minerals", defended on 30 August 2024, was on the phase stability of PbS, ZnS and their solid solution under pressure, with density functional theory.
+
+    His main work since then is on GeO2, a low-pressure analogue of SiO2. He has calculated the elastic constants and seismic velocities of the rutile and CaCl2-type phases and placed the transition between them. He then followed how the transition would appear along the pressure and temperature paths of cold and warm subducting slabs of different ages. He is a co-author of a 2025 Journal of Applied Physics paper on the equation of state of the two GeO2 phases to 70 GPa and of a 2024 American Mineralogist paper on a high-pressure phase transition in Mg2GeO4. He presented the GeO2 elastic properties at the EGU General Assembly 2026 in Vienna. Earlier posters covered high-temperature Raman spectroscopy of PbS (Wadia Institute of Himalayan Geology national conference, 2023) and DFT of PbS, ZnS and their solid solution (Presidency University, Kolkata, 2024). Papers on the GeO2 transition in slabs and on the PbS-ZnS system are in preparation. The calculations run on PARAM Ananta, IITGN's supercomputer.
 
 - slug: omkar
   name: Omkar
   role: PhD student
   group: current
-  title_line: "Prime Minister's Research Fellow"
+  title_line: "Prime Minister's Research Fellow. MTech Earth System Science, IIT Gandhinagar, 2023"
   since: Jul 2023
   topic: Stochastic ground-motion simulation, earthquake declustering and ETAS models, and seismic hazard analysis for India
   email: omkar.singh@iitgn.ac.in
+  links:
+    orcid: "https://orcid.org/0009-0009-4572-9448"
+  about: |
+    Omkar works on statistical seismology and ground-motion simulation for seismic hazard. He did an MTech in Earth System Science at IIT Gandhinagar (2021 to 2023), with a thesis on extended finite-fault simulation of ground motion with GMSS2.0, and began his PhD on 31 July 2023 as a Prime Minister's Research Fellow. He defended his proposal, "Non-Stationary Seismic Hazard Analysis", on 28 October 2024.
+
+    The first strand of his work is stochastic finite-fault simulation: how the stress parameter, kappa and the number of sub-faults should be chosen, and how the codes SMSIM, EXSIM and GMSS2.0 compare on the same earthquakes. The comparison came out in Seismological Research Letters in 2026, with Shikha Sharma, Sanjay Singh Bora and Utsav Mannu, and a second paper, on estimating the stress parameter from response spectra, is under review. The second strand, with Shyam Nandan of IIT Kanpur, is earthquake clustering. He ranks declustering methods against ETAS simulations and asks how the choice of method affects the background rate, the b value and the hazard that follows. A paper on the spatial bias of declustering methods is in preparation, and he is now on the time-dependent side of the same problem. He has presented at the SSA Annual Meeting 2024 in Anchorage, 18WCEE in Milan, JpGU 2025 in Chiba and AES-2026 in Gandhinagar, and had an abstract at the EGU General Assembly 2026.
 
 - slug: sumit-ghosh
   name: Sumit Ghosh
   role: PhD student
   group: current
+  title_line: PhD student at IITGN from July 2023, first with Rajkrishna Dutta, supervised by Utsav Mannu from early 2026
   since: Jul 2023
   topic: Oxides and silicate minerals at high pressure, by first-principles calculations and Raman spectroscopy
   email: sumit.ghosh@iitgn.ac.in
+  links:
+    orcid: "https://orcid.org/0009-0004-5860-4971"
+    linkedin: "https://www.linkedin.com/in/sumit-ghosh-3aa47021b"
+  about: |
+    Sumit Ghosh combines density functional theory with Raman spectroscopy and diamond anvil cell data to follow how oxides and silicate minerals change at high pressure and temperature. He joined IIT Gandhinagar as a PhD student in July 2023 under Rajkrishna Dutta. After Dutta left the institute in 2025, Utsav Mannu took over his guidance and became his supervisor in early 2026. He defended his proposal, "High pressure behaviour of oxides and silicate minerals", on 22 August 2025.
+
+    His first objective is published: the equation of state of the rutile and CaCl2-type phases of GeO2 to 70 GPa, from laser-heated diamond anvil cell experiments with synchrotron X-ray diffraction and DFT calculations, in the Journal of Applied Physics (2025), with Gulshan Kumar, Sharad Babu Pillai and Rajkrishna Dutta. He also works on euclase, BeAlSiO4(OH), under pressure, combining Raman spectroscopy with first-principles calculations, which he presented at the Conference on Integrated Earth at IISER Pune (2024) and at the National Seminar on Dynamic Processes of the Earth at Presidency University, Kolkata (2025). He presented the GeO2 equation of state at the Geological Survey of India's 175-year international seminar in Jaipur in November 2025 and is a co-author of the EGU 2026 abstract on the elastic properties of GeO2 polymorphs to 120 GPa. He is now on the second objective of his thesis.
 
 - slug: deoyani-shelke
   name: Deoyani Shelke
   role: PhD student
   group: current
+  title_line: PhD student at IITGN from July 2023, first with Rajkrishna Dutta
   since: Jul 2023
   topic: Phase transitions of cobalt phosphide at high pressure, by density functional theory and diamond anvil cell data
   email: deoyani.shelke@iitgn.ac.in
+  about: |
+    Deoyani Shelke follows what happens to minerals and metal phosphides when they are squeezed to the pressures of planetary interiors, with density functional theory and diamond anvil cell experiments. She joined IIT Gandhinagar as a PhD student in July 2023, at first under Rajkrishna Dutta, and is now supervised by Utsav Mannu. Her first project was on the pressure-induced phase transitions of zinc sulphide and the phase stability of (Pb,Zn)S solid solutions from first principles, presented as a poster at Presidency University, Kolkata, in March 2025 and defended as her PhD proposal on 3 September 2025.
+
+    Her main work now is cobalt phosphide, Co2P, a model for the light-element alloys thought to sit in planetary cores. She spent a six-month exchange semester at Kumamoto University, Japan, in 2025-26 under the IJEP student exchange programme, in the Department of Physics, where she ran diamond anvil cell experiments and Raman measurements on the Co2P transition. She combines those data with DFT calculations of the stability, structure and properties of the phases, run on PARAM Ananta, IITGN's supercomputer. A paper on the high-pressure behaviour of Co2P, with the Kumamoto collaborators, is in preparation. A third objective in her proposal is to build thermodynamic data for Perple_X from the calculations.
 
 - slug: parvee
   name: Parvee
@@ -74,6 +110,13 @@
   since: Aug 2023
   topic: Cenozoic evolution of the Andaman forearc basin from seismic reflection profiles, wells and geodynamic models
   email: parvee.23310033@iitgn.ac.in
+  links:
+    orcid: "https://orcid.org/0009-0004-0549-7199"
+    linkedin: "https://www.linkedin.com/in/parvee-kushwaha-0984a8209"
+  about: |
+    Parvee reconstructs how the Andaman forearc basin, where the Indian plate subducts obliquely beneath the Burma plate, has evolved through the Cenozoic. She joined the group as a PhD student in August 2023 and defended her proposal on 25 March 2025. Her thesis theme is the role of tectonics and sedimentation in the basin.
+
+    She interprets 2D seismic reflection profiles and offshore well data from the Directorate General of Hydrocarbons. On the sections she maps the East Margin, Diligent and West Andaman faults, the sedimentary sequences from the Paleogene onward and the channel and levee systems of the deep-water fill, and she ties the wells to the seismic lines. In 2026 she has worked on the well logs and their projection onto the seismic lines. The second part of the plan is 2D and 3D geodynamic models of the forearc under oblique subduction, to test what the seismic record says about subsidence, uplift and fault reactivation. She presented a poster on tectonics and sedimentation in the Andaman forearc basin at the Geological Survey of India's 175-year international conference in Jaipur in November 2025. She works with Devanarayanan E M, whose MTech thesis is on the same seismic lines.
 
 - slug: virat-upadhyay
   name: Virat Upadhyay
@@ -84,6 +127,12 @@
   topic: Terrain curvature as a proxy for seismic site amplification, and probabilistic seismic hazard that includes coseismic landslides
   email: virat.upadhyay@iitgn.ac.in
   cosupervisor: Pankaj Kumar, National Institute of Disaster Management
+  links:
+    linkedin: "https://www.linkedin.com/in/virat-upadhyay-950397232"
+  about: |
+    Virat Upadhyay asks whether the shape of the ground surface can show how strongly a site will shake, and how that feeds into landslide hazard. He joined the group as a PhD student in December 2023. His proposal, "Toward Integrated Probabilistic Hazard Assessment: Integrating Multivariate Geological Factors and Surface Topography", was defended on 11 August 2025. The same proposal won him the National Institute of Disaster Management's Doctoral Fellowship for 2025-26, with Pankaj Kumar of NIDM as co-supervisor.
+
+    In the first part of the work he computes the curvature of the terrain from high-resolution digital elevation models, 1 m data at the NGA-West2 stations in the United States and about 4 m data from GSI tiles at the NGA-Sub stations in Japan. The curvature is smoothed over a range of window sizes, so that each scale picks out terrain features of a given size, and compared with the residuals of ground-motion models at those stations. A paper on surface curvature as a site-amplification proxy is in preparation. The next parts bring in geological complexity, tectonic, lithological and structural, together with seismicity, and then fold landslide susceptibility into probabilistic seismic hazard analysis. He presented the curvature work as a poster at AES-2026 in Gandhinagar in January 2026. He also designed the group's logo and takes part in the group's field surveys.
 
 - slug: sumit-singh
   name: Sumit Singh
@@ -93,6 +142,12 @@
   topic: Phase-field fracture in a visco-elasto-plastic geodynamic code, and coupled rift-inversion models of the Cambay basin
   email: singh.sumit@iitgn.ac.in
   cosupervisor: Harini Subramanian, Mechanical Engineering, IIT Gandhinagar
+  links:
+    orcid: "https://orcid.org/0009-0006-4520-288X"
+  about: |
+    Sumit Singh is putting fracture mechanics into geodynamic models, so that faults and earthquakes can emerge inside a long-term tectonic model instead of being prescribed. He joined IIT Gandhinagar as a PhD student in July 2024, co-supervised by Harini Subramanian of Mechanical Engineering. He defended his proposal, "Integrating Fracture Mechanics into Geodynamic Modelling: A Phase-Field Approach to Fractures and Earthquakes", on 23 December 2025.
+
+    The method is an energy-based phase-field formulation, in which a smooth damage variable stands in for cracks, coupled to a visco-elasto-plastic solver on a staggered finite-difference, marker-in-cell grid of the kind used in the group's wedge code. He has built the coupled solver in MATLAB, added adaptive time stepping for damage growth, benchmarked it against a finite-element implementation in FEniCS and fixed the bugs that showed up. He presented the approach in a paper at the 7th Indian Conference on Applied Mechanics, INCAM 2026, at IIT Kanpur, and a poster on intraplate earthquakes at AES-2026 in Gandhinagar. The later objectives are a seismo-thermo-mechanical model with rate-and-state friction and fault healing that produces earthquake sequences, and a study of how convergence rate and lithospheric temperature control where earthquakes occur. Alongside this he runs the group's 2D thermo-mechanical models of rifting and inversion in the Cambay basin, coupling the FastScape surface-process code to ASPECT, continuing Shravan Kumar's work. A paper on the Cambay models is in preparation.
 
 - slug: jagroop-singh
   name: Jagroop Singh
@@ -102,6 +157,12 @@
   since: Jul 2025
   topic: 3D models of oblique subduction, slab tearing and back-arc rifting in the Andaman-Nicobar region
   email: jagroop.singh@iitgn.ac.in
+  links:
+    linkedin: "https://www.linkedin.com/in/jagr00p-singh"
+  about: |
+    Jagroop Singh builds 3D thermomechanical models of oblique subduction to ask when and how back-arc rifting starts, with the Andaman Sea as the natural example. He came to IIT Gandhinagar for the MTech in Earth Science in 2023 and worked with the group from his first year. His MTech thesis, "Evidence of Slab Tearing in the Andaman Nicobar Region: A 3D Geodynamic and Forward Gravity Modeling Approach", was defended on 25 July 2025. It used the I3ELVIS code to model a subducting plate with segments of different dip and compared the gravity anomaly of the models with the observed field. He presented it at the EGU General Assembly 2025 in Vienna, with Shravan Kumar, Taras Gerya and Utsav Mannu, and a paper from that work is in preparation.
+
+    He continued as a PhD student from July 2025 and defended his proposal, "Significance of oblique subduction in initiation and evolution of back-arc rifting: A 3D Geodynamic Modeling Study", on 30 July 2026. The PhD uses LaMEM, a 3D staggered-grid finite-difference code with a free surface. Three sets of experiments vary the obliquity of convergence, add ridges, seamounts and fracture zones to the incoming plate, and change the thickness and distribution of forearc sediment, to see what each does to extension in the overriding plate. The first reduced-size runs give self-consistent subduction and the topography of the trench and overriding plate, and getting the trench to retreat is the current task.
 
 # MTech students
 
@@ -112,6 +173,10 @@
   since: Jul 2024
   topic: MTech thesis on offshore seismic reflection profiles of the Andaman forearc, with Parvee and Pankaj Khanna
   email: devanarayanan.m@iitgn.ac.in
+  about: |
+    Devanarayanan E M is an MTech student in Earth Sciences of the 2024 batch. His thesis is the interpretation of 2D seismic reflection profiles across the Andaman forearc, the sediment-filled basin between the Andaman islands and the Western Andaman Fault that formed under the oblique subduction of the Indian plate. He works with Parvee, whose PhD covers the Cenozoic evolution of the same basin, and with Pankaj Khanna of the department, who works on the Andaman carbonates and seismic lines.
+
+    His own part is seismic facies mapping of the North Andaman forearc basin from two of the lines, reading the depositional packages from their reflection character. His later work extends this to a third line, with the bathymetry and a cross-section of the Andaman-Nicobar subduction system as the frame. A paper on the Andaman forearc seismic lines is in preparation.
 
 - slug: deepak-choudhary
   name: Deepak Choudhary
@@ -120,6 +185,8 @@
   since: Aug 2026
   topic: Earthquake sequences, aftershock clustering (ETAS) and damage accumulation over repeated shaking, with the thesis question still being fixed
   email: deepakchoudhary@iitgn.ac.in
+  about: |
+    Deepak Choudhary joined the group in August 2026 as an MTech student in Earth Sciences. His thesis is in the statistical seismology strand. The reading so far runs in two directions. One is how earthquakes cluster in time and space, through the epidemic-type aftershock sequence (ETAS) model and the methods for estimating its spatially varying parameters. The other is how damage accumulates in buildings over a sequence of ground motions rather than a single mainshock, which changes the fragility and vulnerability models that seismic loss estimates rest on. The thesis question, still to be settled, is expected to lie where the two meet, in the shaking a site should expect from a whole earthquake sequence. He has also been out with the group on its field vibration monitoring with the Raspberry Shake seismographs.
 
 - slug: kalpesh-soni
   name: Kalpesh Soni
@@ -128,6 +195,10 @@
   since: Aug 2026
   topic: Design of earthquake early-warning and monitoring networks for India, scoring station layouts with earthquake statistics
   email: kalpesh@iitgn.ac.in
+  about: |
+    Kalpesh Soni joined the group in August 2026 as an MTech student in Earth Sciences. His thesis asks how the three-dimensional distribution of earthquake sources, in depth as well as on the map, affects the performance of an earthquake early-warning network and where its stations should go.
+
+    The plan is a simulator that replays synthetic earthquake sequences, with clustering from an ETAS model, through candidate station layouts. Each layout is scored on warning time at named towns, blind zone, false and missed alerts, and the magnitude of completeness of the catalogue the same stations would record. Kachchh, with the Gujarat seismic network and the long aftershock sequence of the 2001 Bhuj earthquake, is the first test region, and Northeast India, with its deep intraslab earthquakes, the second. He is reading the genetic-algorithm station-siting studies, the blind-zone theory and the recent graph-network and LoRa relay approaches to early warning.
 
 - slug: meghdatt-thakkar
   name: Meghdatt Thakkar
@@ -136,6 +207,10 @@
   since: Aug 2026
   topic: Satellite radar interferometry (InSAR) of earthquake ground deformation from Sentinel-1 data, with the earthquake still to be chosen
   email: meghdatt@iitgn.ac.in
+  about: |
+    Meghdatt Thakkar joined the group in August 2026 as an MTech student in Earth Sciences. His thesis is on measuring the ground deformation of earthquakes from space with satellite radar interferometry (InSAR). Two radar images of the same ground, taken before and after an earthquake and differenced in phase, give a map of how the surface moved along the line of sight, from which the slip on the fault at depth can be inverted.
+
+    The reading began with the first coseismic interferogram, of the 1992 Landers earthquake (Massonnet and others, 1993), and the review of two decades of satellite geodesy for active tectonics by Elliott, Walters and Wright (2016). The data will come from the free Sentinel-1 archive, with open interferogram products and open-source processing preferred, and the earthquake to study has still to be chosen. The work is a first step for the group into Earth observation, alongside the catalogue and ground-motion work it does on earthquakes.
 
 # Visiting scholars
 
@@ -143,9 +218,13 @@
   name: Vansangkimi
   role: Visiting scholar
   group: visiting
-  title_line: PhD scholar, Mizoram University (supervisor Saitluanga Sailo), co-supervised by Utsav Mannu from 2024 and at IITGN since July 2024
+  title_line: PhD scholar, Department of Geology, Mizoram University (supervisor Saitluanga Sailo, Pachhunga University College), co-supervised by Utsav Mannu from 2024 and at IITGN since July 2024
   since: Jul 2024
   topic: Uplift of the Indo-Burma Ranges read from river profiles and sediment loads, and landslide susceptibility
+  about: |
+    Vansangkimi's thesis is on geodynamic models of the convergent wedge of the Indo-Burma Ranges, the fold-and-thrust belt that runs through Mizoram, Manipur, Nagaland and Tripura and has hardly been modelled. She registered for the PhD at Mizoram University in August 2023 and wrote to Utsav Mannu that September, and he became her co-supervisor in 2024. The objectives, set in November 2023, are convergence velocity, slab dip and wedge taper, trench sedimentation and thrust-sheet length, and the stratigraphy the models produce. She has done the computational part of the work at IITGN since July 2024, and her stay runs to September 2027.
+
+    Her present work reads the uplift history of the ranges from their rivers. For thirteen transverse basins, from the Barak and the Kaladan to the Karnaphuli and the Naf, she maps chi, normalised channel steepness, the hypsometric integral and knickpoints on the 30 m FABDEM bare-earth elevation model with TopoToolbox in MATLAB. From these she tests which drainage divides are moving and in which direction. River-profile inversion, started with Ramendra Sahoo, turns the profiles into an uplift history, and she is collecting suspended-sediment and discharge records from Central Water Commission gauging stations on the Barak, Kaladan and Tripura rivers to express it as erosion rates. A landslide-susceptibility map of the ranges is a side product. The geodynamic models come next.
 
 # Alumni
 
@@ -159,6 +238,12 @@
   degree: PhD Earth Sciences, IIT Gandhinagar, 2026
   topic: A regionally adaptable ground-motion prediction equation for the Himalaya, a hand-processed strong-motion flat file for crustal earthquakes in India, and a referenced empirical adjustment of global models
   cosupervisor: Sanjay Singh Bora (IIT Gandhinagar until 2021, then GNS Science, now Earth Sciences New Zealand)
+  links:
+    orcid: "https://orcid.org/0009-0009-6997-7489"
+  about: |
+    Shikha Sharma joined the PhD programme in Earth Sciences at IIT Gandhinagar in 2019 and moved to the group in December 2021, co-supervised by Sanjay Singh Bora. Before IITGN she did an MTech at IIT (ISM) Dhanbad, after a degree in civil engineering. Her thesis, "Development of regionally adaptable Ground Motion Prediction Equation (GMPE) for the Himalayan region", had three parts. She first compared 13 published ground-motion models for the Himalaya against the PESMOS strong-motion data (Seismological Research Letters, 2024). She then processed by hand about 778 records from 195 crustal earthquakes at 254 stations across India into a flat file of intensity measures, released with the data (Seismica, 2025). In the third part she adjusted global NGA-West models to the Indian records with a referenced empirical approach. A paper on that chapter is in preparation. She submitted the thesis in May 2025, defended it on 22 December 2025 and received the degree at the 15th Convocation on 20 June 2026.
+
+    She also co-authored the Journal of Seismology paper on kappa in North-East India and the 2026 SRL comparison of stochastic simulation codes. She presented at AGU 2023, at SSA 2024 in Anchorage, where her poster won a Student Presentation Award, at 18WCEE in Milan, JpGU 2025 and AES-2026, where her poster took third prize, and won the Earth Sciences best poster at IITGN's PhD Research Showcase 2024.
 
 - slug: anindita-jana
   name: Anindita Jana
@@ -168,6 +253,10 @@
   until: May 2026
   degree: MTech Earth Science, IIT Gandhinagar, 2026
   topic: Numerical models of how convergence velocity shapes accretionary wedges, with the SiStER code, and 3D models of seamount subduction at the Nankai-Hyuga margin
+  about: |
+    Anindita Jana did the MTech in Earth Science at IIT Gandhinagar from July 2024 to May 2026 and wrote her thesis in the group. The thesis, "Numerical Investigation of the Effect of Convergence Velocity on the Structural Evolution of Accretionary Wedges Using the SiStER Code", tested a prediction of critical Coulomb wedge theory, that the shape of a wedge should not depend on how fast the plates converge. She ran five two-dimensional submarine wedge models in SiStER, a finite-difference elasto-visco-plastic Stokes code with Mohr-Coulomb plasticity and cohesion weakening on faults. The models were identical except for convergence velocity, three at constant rates of 0.6, 0.8 and 1.0 cm per year and two with a step up in velocity after one million years. They test whether the thrust sequence, taper and décollement depend on the convergence rate or only on the total shortening. She submitted the thesis on 18 May 2026 and defended it on 26 May 2026.
+
+    Alongside the thesis she ran 3D thermomechanical models of seamount subduction along the Nankai-Hyuga margin with Sumit Singh and Ayumu Miyakawa (AIST, Japan). An abstract on this work was accepted for AOGS 2026 in Fukuoka.
 
 - slug: shravan-kumar
   name: Shravan Kumar
@@ -177,6 +266,11 @@
   since: Jan 2024
   until: Apr 2026
   topic: 2D forward gravity models of crustal structure across the Cambay rift basin and 2D thermo-mechanical models of rift inversion, drawing on marine geophysics
+  # `now` left out: his post after IITGN is known only from his own mails, not from a public page (SCHEMA: `now` only if public).
+  about: |
+    Shravan Kumar was a postdoctoral fellow in the group from January 2024 to April 2026. He has a PhD in Geophysics from Banaras Hindu University (2023), with a thesis on the crustal architecture, sedimentation and tectonics of the Arabian Basin in the north-west Indian Ocean. He came with experience in marine geophysics, gravity and magnetic methods and crustal structure modelling.
+
+    At IITGN he worked on the Cambay rift basin in Gujarat. He built 2D forward gravity models of crustal structure across the basin from public satellite gravity data and worked with Utsav Mannu and Sumit Singh on 2D thermo-mechanical models of rifting followed by inversion. He was a co-author on Jagroop Singh's EGU 2025 abstract on slab tearing and gravity in the Andaman-Nicobar region.
 
 - slug: dakshata-bhamare
   name: Dakshata Bhamare
@@ -186,6 +280,10 @@
   until: May 2025
   degree: MTech Earth Science, IIT Gandhinagar, 2025
   topic: ETAS models of megathrust earthquakes in the Andaman, Alaska-Aleutian and Tonga subduction zones, compared with plate age, trench sediment thickness, seafloor roughness and plate velocities
+  links:
+    orcid: "https://orcid.org/0009-0006-0490-5933"
+  about: |
+    Dakshata Bhamare did the MTech in Earth Science at IIT Gandhinagar from 2023 to 2025 and wrote her thesis in the group. The thesis, "Geological Insights into Megathrust Earthquake Dynamics through ETAS Modeling", fitted the epidemic-type aftershock sequence model to earthquakes of magnitude 4 and above from 1960 to 2024 in three subduction zones, the Andaman, Alaska-Aleutian and Tonga. She then compared the fitted parameters (background rate, productivity, the Omori and spatial decay terms and the b value) with the age of the subducting plate, trench sediment thickness, short-wavelength seafloor roughness and the convergence, subduction and divergence velocities of the plates. She submitted the thesis in April 2025 and defended it on 25 May 2025, with Omkar as her day-to-day guide. A poster from the thesis, with Omkar, Shyam Nandan and Utsav Mannu, was presented at AES-2026 at the Institute of Seismological Research, Gandhinagar, in January 2026.
 
 - slug: lalramnunkimi
   name: Lalramnunkimi
@@ -196,16 +294,82 @@
   until: May 2024
   degree: Master's dissertation research at IITGN, 2024
   topic: The high-frequency attenuation parameter kappa from about 200 local earthquake records in North-East India, mapped with a Voronoi grouping of stations, and first author of the group's Journal of Seismology paper (2026)
+  about: |
+    Lalramnunkimi measured how strongly the high frequencies of seismic waves are damped across North-East India, through the attenuation parameter kappa. She came to the group for the research part of her Master's dissertation at Pachhunga University College, Aizawl. She began the project remotely in late 2023 with her teacher Lalruatpuia Tlau, working out kappa from local earthquakes recorded at three stations in Mizoram, and worked at IITGN from January to May 2024.
+
+    The study grew into a regional one. The dataset is 199 three-component records from 115 earthquakes of magnitude 2.5 to 6.8 across North-East India, from the PESMOS strong-motion network and broadband stations in Mizoram. Kappa was measured by fitting an exponential decay to the acceleration spectra after Anderson and Hough (1984), and the stations were grouped by Voronoi cells to map how it varies with site geology. She wrote the manuscript in mid-2024 with Shikha Sharma's help and is first author of "Seismic attenuation in North-East India: estimation and analysis of the kappa parameter", published in Journal of Seismology in 2026 with Shikha Sharma, Lalruatpuia Tlau, Zosangliana Ralte, Saitluanga Sailo and Utsav Mannu. The waveform dataset behind the paper is on Figshare.
 
 - slug: ramendra-sahoo
   name: Ramendra Sahoo
   role: Postdoctoral fellow
   group: alumni
-  title_line: PhD, IIT Gandhinagar
+  title_line: PhD Earth Sciences, IIT Gandhinagar (2013 to 2020)
   since: Mar 2022
   until: Nov 2022
   topic: River-profile inversion and multifractal analysis of topography to read tectonic uplift from rivers and terrain, and the carbonates and tectonics of the Andaman Islands with Pankaj Khanna
-  now: Scientist, CSIR-National Geophysical Research Institute, Hyderabad (as of 2024)
+  now: Scientist, Earth Process Modelling, CSIR-National Geophysical Research Institute, Hyderabad (since 2022)
+  links:
+    orcid: "https://orcid.org/0000-0002-6315-781X"
+  about: |
+    Ramendra Sahoo reads tectonic uplift from the shapes of rivers and terrain. He was a postdoctoral fellow in the group from March to November 2022, after a PhD at IIT Gandhinagar (2013 to 2020) and a postdoc at IISER Pune in 2020 and 2021. His papers from the PhD cover the fractal character of topography in the tectonically active North-West Himalaya and uplift rates read from river long profiles in Kachchh.
+
+    In the group he worked on river-profile inversion and multifractal analysis of terrain, and on how the sampling scheme affects fluctuation analysis, which became the poster "Effect of sampling on fractal (fluctuation) analysis" with SRIP intern Amarjeet Kumar at a poster session at IITGN in September 2022. With Pankaj Khanna he worked on the Holocene reefs and shallow-marine carbonates of South Andaman, which led to the Frontiers in Marine Science paper (2024) and an SEPM 2024 abstract. He co-organised the SERB Accelerate Vigyan Karyashala on earthquake occurrence and risks held at IITGN in July 2022. He is now a Scientist in the Earth Process Modelling group at CSIR-National Geophysical Research Institute, Hyderabad, and still works with the group on the Andaman papers.
+
+# Alumni of the group at IISER Pune (the PI's INSPIRE Faculty group, 2018 to 2021)
+
+- slug: shreeyesh-biswal
+  name: Shreeyesh Biswal
+  role: BS-MS student
+  group: alumni
+  affiliation_then: IISER Pune
+  title_line: BS-MS thesis student, Department of Earth and Climate Science, IISER Pune
+  since: 2020   # inferred: 2016 batch, thesis issued 2021 (repository record 6247); the thesis year itself is not on record
+  until: 2021
+  degree: BS-MS (physics major), IISER Pune, 2021
+  topic: 2D coupled thermomechanical and petrological models of what sets the style of subduction and the deformation above the slab, including back-arc extension
+  now: holds a PhD from the University of Sheffield (2026) on solar flare forecasting, done as a Marie Skłodowska-Curie fellow of the SWATNet network from 2021
+  links:
+    orcid: "https://orcid.org/0000-0002-1367-8326"
+    github: "https://github.com/shreeyesh-biswal"
+  about: |
+    Shreeyesh Biswal did his BS-MS thesis with the group at IISER Pune, in the Department of Earth and Climate Science, and graduated in 2021. He built two-dimensional coupled thermomechanical and petrological models of subduction and ran experiments on what controls its style. The controls tested were rheological weakening by pore-fluid and melt pressure, the geothermal gradient, and the velocities of the oceanic and continental plates. The models also followed how the region above the slab deforms, and asked which parameters produce back-arc extension. The thesis, "Studying subduction using a 2D coupled thermomechanical petrological model", is in the IISER Pune repository.
+
+    In November 2021 he joined the Solar Physics and Space Plasma Research Centre at the University of Sheffield as a Marie Skłodowska-Curie fellow of the SWATNet network. His doctoral thesis, "Three-Dimensional Solar Flare Forecasting", was completed in 2026 and is held in the repositories of both the University of Sheffield and the University of Ioannina. He is first author of a 2024 paper in The Astrophysical Journal on R-value diagnostics of X-class flares.
+
+- slug: vrushali-sarwan
+  name: Vrushali Sarwan
+  role: BS-MS student
+  group: alumni
+  affiliation_then: IISER Pune
+  title_line: BS-MS thesis student, Department of Earth and Climate Science, IISER Pune
+  since: 2018
+  until: 2019
+  degree: BS-MS (mathematics major), IISER Pune, 2019
+  topic: Estimating the magnitude of completeness of earthquake catalogues and its uncertainties, with new estimators for catalogues with few events tested on synthetic catalogues
+  now: Data science faculty, Itvedant Education (as of 2023)
+  about: |
+    Vrushali Sarwan did her BS-MS thesis with Utsav Mannu in his first year at IISER Pune, in the Department of Earth and Climate Science, and graduated in 2019 with mathematics as her major. The thesis, "Estimating the magnitude of completeness and its uncertainties", is about the lowest magnitude above which an earthquake catalogue can be trusted to record every event, a number every seismicity or hazard study needs first. She proposed catalogue-based estimators meant to work when a catalogue holds few events, built synthetic catalogues from a model of the frequency-magnitude distribution, and compared the new estimators with three existing methods on those synthetics. The work was supported by his DST INSPIRE Faculty fellowship, and the thesis is in the IISER Pune repository. She has since taught data science, at Itvedant Education as of 2023.
+
+- slug: rahul-tak
+  name: Rahul Tak
+  role: BS-MS student
+  group: alumni
+  affiliation_then: IISER Pune
+  title_line: BS-MS thesis student, Department of Earth and Climate Science, IISER Pune
+  since: 2020
+  until: May 2022
+  degree: BS-MS (physics major), IISER Pune, 2022
+  topic: Comparison and ranking of six catalogue-based methods for estimating the magnitude of completeness, as groundwork for earthquake forecasting
+  cosupervisor: Shyam Nandan (now IIT Kanpur)
+  now: PhD student, Marie Skłodowska-Curie Industrial Doctoral Network on Digital Finance, Bucharest University of Economic Studies
+  links:
+    linkedin: "https://www.linkedin.com/in/rahultak99"
+    scholar: "https://scholar.google.com/citations?user=Qgh7cMQAAAAJ"
+    website: "https://www.digital-finance-msca.com/people/rahul-tak"
+  about: |
+    Rahul Tak came to the group at IISER Pune in 2020 from a physics background and did his BS-MS thesis with Utsav Mannu and Shyam Nandan in the Department of Earth and Climate Science. He graduated in May 2022. The thesis, "Comparative analysis of catalog based magnitude of completeness estimation methods", takes up the step that comes before any forecast model, the magnitude above which a network records every earthquake. He scraped and assembled earthquake catalogues, then compared and ranked six catalogue-based estimators (MAXC, MBS, MBASS, EMR, GFT and the Clauset method) on constrained and unconstrained catalogues. He also looked at how completeness has changed over time as seismic networks improved. The thesis is in the IISER Pune repository.
+
+    He worked at Deloitte as a consultant in analytics and financial risk management, and is now a PhD student in the Marie Skłodowska-Curie Industrial Doctoral Network on Digital Finance at the Bucharest University of Economic Studies, where he works on deep-learning-based automated trading systems.
 
 # Interns, by year
 
@@ -217,6 +381,8 @@
   since: 2026
   until: 2026
   topic: ETAS models of subduction-zone catalogues (Makran, Mentawai) and the recurrence of magnitude 7.5 and 8 earthquakes, a first step to probabilistic tsunami hazard
+  about: |
+    Aayan Angkit Kashyap, a BS-MS student at IISER Kolkata, was an SRIP intern in summer 2026. He fitted ETAS models to subduction-zone catalogues, first for the Makran and central Sumatra and then for the Mentawai-Siberut segment. From long synthetic catalogues he estimated recurrence intervals of magnitude 7.5 and 8 earthquakes, as a first step towards probabilistic tsunami hazard assessment.
 
 - slug: shivansh-gohil
   name: Shivansh Gohil
@@ -226,15 +392,19 @@
   since: 2026
   until: 2026
   topic: Geological lineament detection from digital elevation models with convolutional neural networks
+  about: |
+    Shivansh Gohil, a BTech Civil Engineering student at IIT Gandhinagar (2025 batch), was an SRIP intern in summer 2026. He built a pipeline for detecting geological lineaments in digital elevation models with a convolutional neural network, stacking terrain-derived feature maps as the input and post-processing the output with length and confidence thresholds and Hough-transform line filtering to separate structural lineaments from drainage and ridge texture.
 
 - slug: prachi-gaurav
   name: Prachi Gaurav
   role: Intern
   group: alumni
-  title_line: Research intern, BIT Mesra
+  title_line: Research intern, BTech Computer Science and Engineering, BIT Mesra
   since: 2026
   until: 2026
   topic: Deep-learning seismic phase picking with PhaseNet
+  about: |
+    Prachi Gaurav, a third-year BTech Computer Science and Engineering student at BIT Mesra (Deoghar campus), was a research intern with the group from 1 June to 20 July 2026. She worked on automated seismic phase picking and earthquake detection with deep-learning models, in particular PhaseNet, applying it to waveform data to pick P and S arrivals automatically as a step towards building earthquake catalogues.
 
 - slug: tejaswi-raj
   name: Tejaswi Raj
@@ -244,6 +414,8 @@
   since: 2026
   until: 2026
   topic: Pulling waveform data from the group's Raspberry Shake stations with ObsPy
+  about: |
+    Tejaswi Raj, a BTech Electronics and Communication Engineering student at Bharati Vidyapeeth College of Engineering, Pune, was an online research intern from 18 May to 27 July 2026. He wrote Python scripts with ObsPy to pull waveform records for chosen stations and time windows from the Raspberry Shake data service, including the group's own stations, and save them as MiniSEED files for further analysis.
 
 - slug: kovid-parmar
   name: Kovid Parmar
@@ -252,7 +424,9 @@
   title_line: SRIP intern, BTech Computer Science, IIT Gandhinagar
   since: 2025
   until: 2025
-  topic: Built the previous group website
+  topic: Design and build of the previous group website
+  about: |
+    Kovid Parmar, a BTech Computer Science and Engineering student at IIT Gandhinagar (2023 batch), was an SRIP intern in summer 2025 on the project "Construction for the GeoD Labs portal". The group's earlier website was his work, with a home page, a research page with theme cards, a team page with member cards and a filter by category, and about and contact pages, all laid out to work on phones and desktops.
 
 - slug: aniket-kumar
   name: Aniket Kumar
@@ -262,6 +436,8 @@
   since: 2025
   until: 2025
   topic: 2D geodynamic models in i2ELVIS of what sets the depth of earthquakes in subduction zones, with the Andaman-Sumatra margin as the test case
+  about: |
+    Aniket Kumar, from IIST Thiruvananthapuram, started reading with the group in December 2024 and was an SRIP intern in summer 2025. His project asked what sets the depth of the seismogenic zone in subduction zones. Extending McKenzie and Jackson (2020), he tested how sedimentation rate, sediment thickness and the initial thermal state of the lithosphere control it, in 2D geodynamic models in i2ELVIS with the Andaman-Sumatra margin as the test case.
 
 - slug: kailash-dusad
   name: Kailash Dusad
@@ -271,6 +447,8 @@
   since: 2024
   until: 2024
   topic: A group web page on the MERN stack
+  about: |
+    Kailash Dusad, a BTech Electrical Engineering student at IIT Gandhinagar, was an SRIP intern in summer 2024. His project was a web page for the group, built on the MERN stack, with pages for members, publications and ongoing projects.
 
 - slug: aprajita-sharma
   name: Aprajita Sharma
@@ -280,12 +458,14 @@
   since: 2024
   until: 2024
   topic: A public web portal for probabilistic seismic hazard analysis
+  about: |
+    Aprajita Sharma was an SRIP intern in summer 2024. Her project, "Designing a User-Friendly Probabilistic Seismic Hazard Web Portal for Public Safety", set out to build a web portal that gives the public in India easy access to earthquake hazard information, with an interactive interface for looking up the hazard at a place and preparing for it.
 
 - slug: kartik-sakkarwal
   name: Kartik Sakkarwal
   role: Intern
   group: alumni
-  title_line: SRIP intern, IISER Kolkata
+  title_line: SRIP intern, BS-MS student, IISER Kolkata
   since: 2022
   until: 2022
   topic: Summer research internship
@@ -294,10 +474,12 @@
   name: Amarjeet Kumar
   role: Intern
   group: alumni
-  title_line: SRIP intern, IISER Kolkata
+  title_line: SRIP intern, BS-MS student, IISER Kolkata
   since: 2022
   until: 2022
   topic: Summer research internship, with a poster on sampling effects in fractal analysis with Ramendra Sahoo
+  about: |
+    Amarjeet Kumar, a BS-MS student at IISER Kolkata, was an SRIP intern in summer 2022. He worked with Ramendra Sahoo on how the sampling scheme affects fractal (fluctuation) analysis of topographic profiles, and is second author of the poster "Effect of sampling on fractal (fluctuation) analysis" (Ramendra Sahoo, Amarjeet Kumar, Utsav Mannu) presented at a poster session at IITGN in September 2022.
 
 - slug: sitaram-rathi
   name: Sitaram Rathi
